@@ -45,62 +45,17 @@ code.r.hljs.remark-code:hover{
 
 
 ---
-# I am title
+# R for Economic Data Labs
 
-Hello, GH pages!
+This is a document that collects the commands we have used in R so far in the course. 
 
+--
 
+As the course progresses we will extend this list. 
 
----
-# Some R code 
+--
 
-
-```r
-hist(cars$speed)
-```
-
-&lt;img src="r_for_economic_data_files/figure-html/chunk_10-1.png" width="432" /&gt;
-
-
-
----
-# Some more R code 
-
-
-```r
-## Loading packages 
-library(readr)
-library(tidyverse)
-
-## Loading and cleaning data 
-df &lt;- read_csv('births.csv') %&gt;% 
-  rename(age      = Age) %&gt;% 
-  rename(n_women  = "Number of women") %&gt;% 
-  rename(n_births = "Number of births") %&gt;% 
-  filter(!is.na(n_women)) %&gt;% 
-  mutate(afr = n_births/n_women)
-```
-
-
-
----
-# even more R code 
-
-
-```r
-## Calculating the total fertility rate 
-sum(df %&gt;% select(afr)) %&gt;% round(d = 2)
-```
-
-```
-[1] 0.57
-```
-
-```r
-# The total fertility rate is 0.57.
-```
-
-
+It also presents a walk through of the R scripts from all the labs so far.
 
 
 

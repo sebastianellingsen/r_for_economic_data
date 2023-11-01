@@ -49,51 +49,17 @@ library(readxl)
 
 
 ---
-# I am title
+# R for Economic Data Labs
 
-Hello, GH pages!
+This is a document that collects the commands we have used in R so far in the course. 
 
+--
 
+As the course progresses we will extend this list. 
 
----
-# Some R code 
+--
 
-```{r chunk_10, include = T}
-hist(cars$speed)
-```
-
-
-
----
-# Some more R code 
-
-```{r chunk_7, include = T}
-## Loading packages 
-library(readr)
-library(tidyverse)
-
-## Loading and cleaning data 
-df <- read_csv('births.csv') %>% 
-  rename(age      = Age) %>% 
-  rename(n_women  = "Number of women") %>% 
-  rename(n_births = "Number of births") %>% 
-  filter(!is.na(n_women)) %>% 
-  mutate(afr = n_births/n_women)
-
-```
-
-
-
----
-# even more R code 
-
-```{r chunk_8, include = T}
-## Calculating the total fertility rate 
-sum(df %>% select(afr)) %>% round(d = 2)
-# The total fertility rate is 0.57.
-```
-
-
+It also presents a walk through of the R scripts from all the labs so far.
 
 
 
