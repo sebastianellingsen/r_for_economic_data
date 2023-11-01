@@ -43,117 +43,67 @@ code.r.hljs.remark-code:hover{
 
 
 
-# R for Economic Data Labs
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 
+???
 
-This is a document that collects the commands we have used in R so far in the course. 
-
---
-
-As the course progresses we will extend this list. 
-
---
-
-It also presents a walk through of the R scripts from all the labs so far.
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
 
 ---
+# I am title
 
+Hello, GH pages!
 
-
-# Style guide
-
-To make the scripts understandable for other people and for yourself in the future, it is important to follow a few principles when writing code.
-
-- Add comments in scripts. This is done with a `\(\texttt{#}\)`. R will ignore anything that comes after a `\(\texttt{#}\)`.
-
-- Names should be descriptive and meaningful. 
-
-- Use underscore to separate words in a variable name of several words, not spaces.
-
-- Add line breaks and avoid very long lines. 
-
-- Variable and function names should be written in lowercase. 
-
-- Avoid using names that are the same as existing variables.
-
-- Add spacing between symbols such as `\(\texttt{+}\)`, `\(\texttt{=}\)`, and `\(\texttt{-}\)`.
-
-- Verically align some repetitive coding tasks.
 
 
 ---
+# Some R code 
 
 
+```r
+hist(cars$speed)
+```
 
-# Libraries in R
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10-1.png" width="432" /&gt;
 
-- To install a library in R use `\(\texttt{install.packages("library name")}\)`. This typically only needs to be done once during this course. To update the library, you can use the same command.
-
-- To load a library in R use `\(\texttt{library(library name)}\)`. This needs to be done every time you load commands from a library.
-
-- It is good practice to only load the packages you need for each session. The reason is that some packages have the same function names. In this case, you need to specify from which package the function is from. This is done with `\(\texttt{library name::function name}\)`.
-
-- `\(\texttt{readr}\)` has functionality for importing standard data formats in a convenient way. 
-
-- `\(\texttt{readxl}\)` has functions for importing data stored in Excel.
-
-- `\(\texttt{tidyverse}\)` has several functions that are convenient for working with data.
-
----
-
-
-
-
-# General functions
-
-- `\(\texttt{%&gt;%}\)` is a function from the `\(\texttt{tidyverse}\)` package. It tells R that we are referring to an object we have defined on a line above.
-
-- `\(\texttt{&lt;-}\)` is an assignment operator in R. You can assign an object to a name. For example, if you want to create a variable `\(\texttt{x}\)` that takes the value `\(3\)`, you can write `\(\texttt{x &lt;- 3}\)`. From our labs, we have seen how we can assign a plot or a dataset to a variable name as well. 
-
-- Addition: `\(\texttt{+}\)`, subtraction: `\(\texttt{-}\)`, multiplication: `\(\texttt{*}\)`, division: `\(\texttt{/}\)`.
-
-- Vectors are constructed using `\(\texttt{c()}\)` (for concatenate). Ex: `\(\texttt{v &lt;- c(1,2,3)}\)`.
-
-- `\(\texttt{ifelse(statement, if true, if false)}\)` creates an indicator variable.
 
 
 ---
+# Some more R code 
 
 
+```r
+## Loading packages 
+library(readr)
+library(tidyverse)
 
-# Cleaning data
+## Loading and cleaning data 
+df &lt;- read_csv('births.csv') %&gt;% 
+  rename(age      = Age) %&gt;% 
+  rename(n_women  = "Number of women") %&gt;% 
+  rename(n_births = "Number of births") %&gt;% 
+  filter(!is.na(n_women)) %&gt;% 
+  mutate(afr = n_births/n_women)
+```
 
-- `\(\texttt{read_csv()}\)` opens csv files in R.
-
-- `\(\texttt{read_excel()}\)` opens excel files in R. 
-
-- `\(\texttt{select()}\)` selects columns in a dataset.
-
-- `\(\texttt{filter()}\)` selects rows in a dataset.
-
-- `\(\texttt{rename()}\)` renames columns in a dataset.
-
-- `\(\texttt{mutate()}\)` create a new column in a dataset.
-
-- `\(\texttt{lag( ,n = 1)}\)` lags a variable `\(\texttt{n}\)` rows.
 
 
 ---
+# even more R code 
 
 
+```r
+## Calculating the total fertility rate 
+sum(df %&gt;% select(afr)) %&gt;% round(d = 2)
+```
 
+```
+[1] 0.57
+```
 
-
-
-# Plotting data 
-
-- `\(\texttt{ggplot()}\)` is a command for plotting data.
-
-- `\(\texttt{geom_line()}\)` connects a line between your data points.
-
-- `\(\texttt{geom_point()}\)` plots the data points.
-
-- `\(\texttt{geom_bar()}\)` plots a bar chart.
+```r
+# The total fertility rate is 0.57.
+```
 
 
 
