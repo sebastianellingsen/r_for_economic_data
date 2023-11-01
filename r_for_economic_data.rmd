@@ -247,11 +247,9 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
@@ -334,11 +332,9 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+

@@ -666,7 +666,7 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-* theme(axis.line.x = element_line(size = 0.28, colour = "black"))
+* theme(strip.placement = "outside")
 ```
 ]
  
@@ -694,8 +694,8 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-* theme(axis.line.y = element_line(size = 0.28, colour = "black"))
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -723,9 +723,9 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-* theme(strip.placement = "outside")
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -753,10 +753,10 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-* theme(panel.grid.minor = element_line('grey', size = 0.1))
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.position = "none")
 ```
 ]
  
@@ -784,11 +784,11 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-* theme(panel.grid.major = element_line('grey', size = 0.1))
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.position = "none")+
+* theme(text=element_text(family="Palatino"))
 ```
 ]
  
@@ -816,12 +816,12 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-* theme(legend.position = "none")
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -849,13 +849,13 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
-* theme(text=element_text(family="Palatino"))
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -883,14 +883,14 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
-* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+* scale_x_continuous(n.breaks=8)
 ```
 ]
  
@@ -918,84 +918,9 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background = element_rect(fill = "transparent", colour = NA))
-```
-]
- 
-.panel2-chunk_2-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_19_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_2-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = gdppc))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("GDP per capita")+
-  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
-       subtitle = "Real GDP per capita in 2011 dollars",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-* scale_x_continuous(n.breaks=8)
-```
-]
- 
-.panel2-chunk_2-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_20_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_2-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = gdppc))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("GDP per capita")+
-  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
-       subtitle = "Real GDP per capita in 2011 dollars",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
@@ -1006,7 +931,7 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
 ]
  
 .panel2-chunk_2-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_21_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_19_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -1537,7 +1462,7 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-* theme(axis.line.x = element_line(size = 0.28, colour = "black"))
+* theme(strip.placement = "outside")
 ```
 ]
  
@@ -1565,8 +1490,8 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-* theme(axis.line.y = element_line(size = 0.28, colour = "black"))
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -1594,9 +1519,9 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-* theme(strip.placement = "outside")
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -1624,10 +1549,10 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-* theme(panel.grid.minor = element_line('grey', size = 0.1))
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.position = "none")
 ```
 ]
  
@@ -1655,11 +1580,11 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-* theme(panel.grid.major = element_line('grey', size = 0.1))
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.position = "none")+
+* theme(text=element_text(family="Palatino"))
 ```
 ]
  
@@ -1687,12 +1612,12 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-* theme(legend.position = "none")
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -1720,13 +1645,13 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
-* theme(text=element_text(family="Palatino"))
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -1754,14 +1679,14 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
-* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+* scale_x_continuous(n.breaks=8)
 ```
 ]
  
@@ -1789,84 +1714,9 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(plot.caption = element_text(size=6))+
   theme(axis.title = element_text(size = 11))+
   theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
   theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background = element_rect(fill = "transparent", colour = NA))
-```
-]
- 
-.panel2-chunk_4-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_19_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_4-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = pop))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("Population")+
-  labs(title = "Population, United Kingdom 1980 - 2018",
-       subtitle = "Population measured in 1000s",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-* scale_x_continuous(n.breaks=8)
-```
-]
- 
-.panel2-chunk_4-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_20_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_4-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = pop))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("Population")+
-  labs(title = "Population, United Kingdom 1980 - 2018",
-       subtitle = "Population measured in 1000s",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
-  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1))+
-  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
@@ -1877,7 +1727,7 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
 ]
  
 .panel2-chunk_4-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_21_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_19_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
