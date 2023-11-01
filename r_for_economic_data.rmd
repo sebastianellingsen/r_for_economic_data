@@ -67,7 +67,9 @@ This is a document that collects the commands we have used in R so far in the co
 
 As the course progresses we will extend this list. 
 
-It also presents a walk through of the R scripts from all the labs so far.
+It also presents a walk-through of the R scripts from all the labs so far.
+
+
 
 
 
@@ -75,25 +77,107 @@ It also presents a walk through of the R scripts from all the labs so far.
 
 
 ---
-# Style guide
+# RStudio environment
 
-To make the scripts understandable for other people and for yourself in the future, it is important to follow a few principles when writing code.
+To work with R we use RStudio. 
 
-- Add comments in scripts. This is done with a `#`. R will ignore anything that comes after a `#`.
+R itself is a small program without a useful user interface. 
 
-- Names should be descriptive and meaningful. 
+RStudio is a IDE (integrated development environment) developed for R. 
 
-- Use underscore to separate words in a variable name of several words, not spaces.
+Contains a lot of useful functionality that help us write code more effectively. 
 
-- Add line breaks and avoid very long lines. 
+RStudio knows R syntax and is integrated with git and RMarkdown.
 
-- Variable and function names should be written in lowercase. 
+But at the end of the day, the key element is a text file and a console. 
 
-- Avoid using names that are the same as existing variables.
 
-- Add spacing between symbols such as `+`, `=`, and `-`.
 
-- Verically align some repetitive coding tasks.
+
+
+---
+# How R works
+
+You can think a session in R as being a collection of objects and functions. All objects you work with has a name.  
+
+You can assign a name to objects using the symbol `<-`. Below we create an object `x` to which we assign the number `3`.
+
+```{r chunk_intro_1, include = T}
+x <- 3
+```
+
+You will write code to create, and manipulate named objects such as `x` in R. Operations such as addition: `+`, subtraction: `-`, multiplication: `*`, and division: `/` all work in R.
+
+```{r chunk_intro_2, include = T}
+x/2
+x*5
+```
+
+
+
+
+
+
+---
+# Objects in R
+
+There are many different objects in R. We have seen numbers, characters, logicals, and dataframes.
+
+There are different operations or functions you can apply to different objects. Below we define a string: (note that strings are in quotations)
+
+```{r chunk_intro_3, include = T}
+w <- "my first word"
+```
+
+You can ask R for what type of object it is using the function `class()`
+
+```{r chunk_intro_4, include = T}
+class(w)
+class(x)
+```
+
+
+
+
+
+---
+# Data in R
+
+Data comes as lists of objects such as `a`
+```{r chunk_intro_5, include = T}
+a <- c(3, 2, 5, 6 , 9)
+b <- c('a', 'b', 'c', 'd', 'e')
+```
+
+There are several built-in functions such `mean()`, `median()`, or `summarise()` to calculate various moments of your data.
+```{r chunk_intro_6, include = T}
+mean(a)
+median(a)
+mean(b)
+```
+
+
+
+---
+# Dataframes
+
+In R, data is stored as dataframes 
+
+```{r chunk_intro_7, include = T}
+df <- data.frame(var_1 = a, var_2 = b)
+```
+
+Here we assigned a dataframe to the name `df`.
+
+```{r chunk_intro_8, include = T}
+class(df)
+```
+
+We can access a particular column in `df` by using `$`
+
+```{r chunk_intro_9, include = T}
+df$var_1
+```
 
 
 
@@ -173,6 +257,32 @@ To make the scripts understandable for other people and for yourself in the futu
 - `geom_point()` plots the data points.
 
 - `geom_bar()` plots a bar chart.
+
+
+
+
+
+
+---
+# Style guide
+
+To make the scripts understandable for other people and for yourself in the future, it is important to follow a few principles when writing code.
+
+- Add comments in scripts. This is done with a `#`. R will ignore anything that comes after a `#`.
+
+- Names should be descriptive and meaningful. 
+
+- Use underscore to separate words in a variable name of several words, not spaces.
+
+- Add line breaks and avoid very long lines. 
+
+- Variable and function names should be written in lowercase. 
+
+- Avoid using names that are the same as existing variables.
+
+- Add spacing between symbols such as `+`, `=`, and `-`.
+
+- Vertically align some repetitive coding tasks.
 
 
 
