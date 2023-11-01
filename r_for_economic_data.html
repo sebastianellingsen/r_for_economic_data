@@ -855,7 +855,7 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+* scale_x_continuous(n.breaks=8)
 ```
 ]
  
@@ -889,49 +889,13 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-* scale_x_continuous(n.breaks=8)
-```
-]
- 
-.panel2-chunk_2-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_18_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_2-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = gdppc))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("GDP per capita")+
-  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
-       subtitle = "Real GDP per capita in 2011 dollars",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
 * scale_y_continuous(n.breaks=8, label=comma)
 ```
 ]
  
 .panel2-chunk_2-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_19_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_18_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -1651,7 +1615,7 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+* scale_x_continuous(n.breaks=8)
 ```
 ]
  
@@ -1685,49 +1649,13 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(legend.position = "none")+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-* scale_x_continuous(n.breaks=8)
-```
-]
- 
-.panel2-chunk_4-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_18_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_4-auto[
-
-```r
-## Plotting the hockey stick graph
-ggplot(data = mpd2020, aes(x = year, y = pop))+
-  geom_line(lwd = 0.6) +
-    xlab("Year") +
-  ylab("Population")+
-  labs(title = "Population, United Kingdom 1980 - 2018",
-       subtitle = "Population measured in 1000s",
-       caption = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(plot.caption = element_text(size=6))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.position = "none")+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
 * scale_y_continuous(n.breaks=8, label=comma)
 ```
 ]
  
 .panel2-chunk_4-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_19_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_18_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -2908,7 +2836,7 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
         theme(legend.key = element_rect(fill = NA))+
         theme(text=element_text(family="Palatino"))+
         theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-*       theme(plot.background = element_rect(fill = "transparent", colour = NA))
+* scale_x_continuous(n.breaks=8)
 ```
 ]
  
@@ -2946,8 +2874,8 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
         theme(legend.key = element_rect(fill = NA))+
         theme(text=element_text(family="Palatino"))+
         theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-* scale_x_continuous(n.breaks=8)
+  scale_x_continuous(n.breaks=8) +
+* scale_y_continuous(n.breaks=8)
 ```
 ]
  
@@ -2985,9 +2913,9 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
         theme(legend.key = element_rect(fill = NA))+
         theme(text=element_text(family="Palatino"))+
         theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
-* scale_y_continuous(n.breaks=8)
+  scale_y_continuous(n.breaks=8) +
+* geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, family = 'Palatino',show.legend  = FALSE)
 ```
 ]
  
@@ -3025,48 +2953,6 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
         theme(legend.key = element_rect(fill = NA))+
         theme(text=element_text(family="Palatino"))+
         theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-  scale_x_continuous(n.breaks=8) +
-  scale_y_continuous(n.breaks=8) +
-* geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, family = 'Palatino',show.legend  = FALSE)
-```
-]
- 
-.panel2-chunk_6-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_6_auto_22_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_6-auto[
-
-```r
-## Plotting the data
-ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
-  geom_point(aes(size = pop), alpha = 0.6, stroke = 0.2)+
-  scale_size_continuous(range = c(0.5, 8),  breaks = c(6e+8, 1.3e+9), labels = c('600M', '1.3B'))+
-    xlab("GDP per capita (log)") +
-  ylab("Life expectancy at birth") +
-  labs(title = "Life expectancy vs. GDP per capita, 2015",
-       size = 'Population:',
-       color = ' ',
-       subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
-       caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
-  theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
   geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, family = 'Palatino',show.legend  = FALSE) +
@@ -3076,7 +2962,7 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
 ]
  
 .panel2-chunk_6-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_6_auto_23_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_6_auto_22_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -3968,41 +3854,6 @@ ggplot(data = df, aes(x = age, y = afr))+
  
 .panel2-chunk_8-auto[
 &lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_17_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_8-auto[
-
-```r
-ggplot(data = df, aes(x = age, y = afr))+
-  geom_line()+
-    xlab("Age") +
-  ylab("Age specific fertility rate") +
-  labs(title    = "Age specific fertility rates",
-       size     = 'Population:',
-       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
-       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
-  theme(plot.title        = element_text(size=12))+
-  theme(plot.subtitle     = element_text(size=9))+
-  theme(legend.title      = element_text(size=9))+
-  theme(plot.caption      = element_text(size=6, hjust = 0))+
-  theme(axis.title        = element_text(size = 11))+
-  theme(strip.background  = element_blank())+
-  theme(strip.placement   = "outside")+
-  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key        = element_rect(fill = NA))+
-  theme(text              = element_text(family="Palatino"))+
-  theme(panel.background  = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background   = element_rect(fill = "transparent", colour = NA))
-```
-]
- 
-.panel2-chunk_8-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_18_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -4963,43 +4814,6 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
  
 .panel2-chunk_10-auto[
 &lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_18_output-1.png" width="432" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-chunk_10-auto[
-
-```r
-## Plotting the growth rates
-ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
-  geom_bar(stat='identity') +
-    xlab("Year") +
-  ylab("Growth rate") +
-  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
-       color    = ' ',
-       subtitle = "Real GDP per capita in 2011 dollars.",
-       caption  = "Source: Maddison Project Database (MPD) 2020")+
-  theme(plot.title       = element_text(size=12))+
-  theme(plot.subtitle    = element_text(size=9))+
-  theme(legend.title     = element_text(size=9))+
-  theme(plot.caption     = element_text(size=6, hjust = 0))+
-  theme(axis.title       = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement  = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key       = element_rect(fill = NA))+
-  theme(legend.position  = "none")+
-  theme(text             = element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background  = element_rect(fill = "transparent", colour = NA))
-```
-]
- 
-.panel2-chunk_10-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_19_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
@@ -5993,20 +5807,7 @@ count: false
 ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
   geom_point(size = 1.3)+
   scale_shape_manual(values=c(0,3,1))+
-* theme(plot.title = element_text(size=12),
-*       plot.subtitle = element_text(size=9),
-*       legend.title = element_blank(),
-*       legend.position="bottom",
-*       plot.caption = element_text(size=6, hjust = 0),
-*       axis.title = element_text(size = 11),
-*       strip.background = element_blank(),
-*       strip.placement = "outside",
-*       panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
-*       panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
-*       legend.key = element_rect(fill = NA),
-*       text=element_text(family="Palatino"),
-*       panel.background = element_rect(fill = "transparent", colour = NA),
-*       plot.background = element_rect(fill = "transparent", colour = NA))
+* theme(plot.title = element_text(size=12))
 ```
 ]
  
@@ -6025,21 +5826,8 @@ count: false
 ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
   geom_point(size = 1.3)+
   scale_shape_manual(values=c(0,3,1))+
-  theme(plot.title = element_text(size=12),
-        plot.subtitle = element_text(size=9),
-        legend.title = element_blank(),
-        legend.position="bottom",
-        plot.caption = element_text(size=6, hjust = 0),
-        axis.title = element_text(size = 11),
-        strip.background = element_blank(),
-        strip.placement = "outside",
-        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
-        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
-        legend.key = element_rect(fill = NA),
-        text=element_text(family="Palatino"),
-        panel.background = element_rect(fill = "transparent", colour = NA),
-        plot.background = element_rect(fill = "transparent", colour = NA))+
-* xlab("Real GDP per capita")
+  theme(plot.title = element_text(size=12))+
+* theme(plot.subtitle = element_text(size=9))
 ```
 ]
  
@@ -6058,22 +5846,9 @@ count: false
 ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
   geom_point(size = 1.3)+
   scale_shape_manual(values=c(0,3,1))+
-  theme(plot.title = element_text(size=12),
-        plot.subtitle = element_text(size=9),
-        legend.title = element_blank(),
-        legend.position="bottom",
-        plot.caption = element_text(size=6, hjust = 0),
-        axis.title = element_text(size = 11),
-        strip.background = element_blank(),
-        strip.placement = "outside",
-        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
-        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
-        legend.key = element_rect(fill = NA),
-        text=element_text(family="Palatino"),
-        panel.background = element_rect(fill = "transparent", colour = NA),
-        plot.background = element_rect(fill = "transparent", colour = NA))+
-  xlab("Real GDP per capita") +
-* ylab("Overall life satisfaction (1=lowest, 10=highest)")
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+* theme(legend.title = element_blank())
 ```
 ]
  
@@ -6092,23 +5867,10 @@ count: false
 ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
   geom_point(size = 1.3)+
   scale_shape_manual(values=c(0,3,1))+
-  theme(plot.title = element_text(size=12),
-        plot.subtitle = element_text(size=9),
-        legend.title = element_blank(),
-        legend.position="bottom",
-        plot.caption = element_text(size=6, hjust = 0),
-        axis.title = element_text(size = 11),
-        strip.background = element_blank(),
-        strip.placement = "outside",
-        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
-        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
-        legend.key = element_rect(fill = NA),
-        text=element_text(family="Palatino"),
-        panel.background = element_rect(fill = "transparent", colour = NA),
-        plot.background = element_rect(fill = "transparent", colour = NA))+
-  xlab("Real GDP per capita") +
-  ylab("Overall life satisfaction (1=lowest, 10=highest)") +
-* scale_y_continuous(label=comma)
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+* theme(legend.position="bottom")
 ```
 ]
  
@@ -6127,20 +5889,397 @@ count: false
 ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
   geom_point(size = 1.3)+
   scale_shape_manual(values=c(0,3,1))+
-  theme(plot.title = element_text(size=12),
-        plot.subtitle = element_text(size=9),
-        legend.title = element_blank(),
-        legend.position="bottom",
-        plot.caption = element_text(size=6, hjust = 0),
-        axis.title = element_text(size = 11),
-        strip.background = element_blank(),
-        strip.placement = "outside",
-        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
-        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
-        legend.key = element_rect(fill = NA),
-        text=element_text(family="Palatino"),
-        panel.background = element_rect(fill = "transparent", colour = NA),
-        plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+* theme(plot.caption = element_text(size=6, hjust = 0))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_08_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+* theme(axis.title = element_text(size = 11))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_09_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+* theme(strip.background = element_blank())
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+* theme(strip.placement = "outside")
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_13_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.key = element_rect(fill = NA))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_14_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+* theme(text=element_text(family="Palatino"))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_15_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_16_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_17_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+* xlab("Real GDP per capita")
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_18_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  xlab("Real GDP per capita") +
+* ylab("Overall life satisfaction (1=lowest, 10=highest)")
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_19_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  xlab("Real GDP per capita") +
+  ylab("Overall life satisfaction (1=lowest, 10=highest)") +
+* scale_y_continuous(label=comma)
+```
+]
+ 
+.panel2-chunk_13-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_20_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_13-auto[
+
+```r
+## Plotting the data
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="bottom")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   xlab("Real GDP per capita") +
   ylab("Overall life satisfaction (1=lowest, 10=highest)") +
   scale_y_continuous(label=comma)+
@@ -6153,7 +6292,7 @@ ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
 ]
  
 .panel2-chunk_13-auto[
-&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_08_output-1.png" width="432" /&gt;
+&lt;img src="r_for_economic_data_files/figure-html/chunk_13_auto_21_output-1.png" width="432" /&gt;
 ]
 
 &lt;style&gt;
