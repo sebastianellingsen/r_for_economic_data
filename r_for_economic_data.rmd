@@ -1,11 +1,12 @@
 ---
-title: "xaringan in Github pages test"
-author: "TC"
-date: "2017/12/2"
+title: "R for Economic Data Labs"
+author: "Sebastian Ellingsen"
+date: "1/11/2023"
 output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: 16:9
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
