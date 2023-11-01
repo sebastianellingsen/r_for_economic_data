@@ -44,7 +44,7 @@ options(htmltools.dir.version = FALSE)
 
 # This is the recommended set up for flipbooks
 # you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
-knitr::opts_chunk$set(fig.width = 6, fig.retina = 5,message = FALSE, warning = FALSE, comment = "", cache = F)
+knitr::opts_chunk$set(fig.width = 6, small.mar=TRUE, fig.retina = 5,message = FALSE, warning = FALSE, comment = "", cache = F)
 library(flipbookr)
 library(tidyverse)
 library(readxl)
@@ -446,7 +446,7 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
         theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
-  geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
+  geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, family = 'Palatino',show.legend  = FALSE) +
   guides(size = guide_legend(override.aes=list(shape = 1)),
          color = guide_legend(override.aes=list(shape = 15)))
 ```
@@ -619,6 +619,87 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 5
+
+
+
+
+
+---
+
+
+```{r, include = F}
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+## Loading and cleaning the dataa
+df <- read_csv('lab_4/births.csv') %>% 
+  rename(age      = Age, 
+         n_women  = "Number of women", 
+         n_births = "Number of births") %>% 
+  filter(!is.na(n_women)) %>% 
+  mutate(afr = n_births/n_women)
+
+```
+
+
+
+`r chunk_reveal("chunk_11")`
+
+```{r chunk_11, include = FALSE}
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction  
+life_sat <- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %>% 
+  select(geo, TIME_PERIOD, OBS_VALUE) %>% 
+  rename(country  = geo,
+         year     = TIME_PERIOD, 
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita   
+gdppc <- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %>% 
+  select(geo, TIME_PERIOD, OBS_VALUE) %>% 
+  rename(country = geo,
+         year    = TIME_PERIOD, 
+         gdppc   = OBS_VALUE)
+
+
+## Combining the datasets 
+df <- life_sat %>% 
+  full_join(gdppc, by = c('country', 'year')) %>% 
+  filter(!is.na(life_sat), 
+         !is.na(gdppc), 
+         country!='EU27_2020') 
+```
 
 
 
