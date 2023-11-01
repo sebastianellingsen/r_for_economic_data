@@ -255,9 +255,8 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
   theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-  scale_y_continuous(label=comma)+
   scale_x_continuous(n.breaks=8) +
-  scale_y_continuous(n.breaks=8)
+  scale_y_continuous(n.breaks=8, label=comma)
 ```
 
 
@@ -341,9 +340,8 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
   theme(plot.background = element_rect(fill = "transparent", colour = NA))+
-  scale_y_continuous(label=comma)+
   scale_x_continuous(n.breaks=8) +
-  scale_y_continuous(n.breaks=8)
+  scale_y_continuous(n.breaks=8, label=comma)
 ```
 
 
@@ -905,5 +903,39 @@ life_exp %>%
   mutate(uk = ifelse(country == 'United Kingdom', 1, 0) %>% as.factor())
 ```
 
+
+
+
+
+---
+
+
+`r chunk_reveal("chunk_16")`
+
+```{r chunk_16, include = FALSE}
+ggplot(data = df, aes(x = as.numeric(year), y = odi, color = country))+
+  geom_line(aes(alpha = uk))+
+  scale_color_manual(values = rep(1, 19))+
+  scale_alpha_manual(values = c(0.1, 1))+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_blank())+
+  theme(legend.position="none")+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  xlab("Year") +
+  ylab("Our development index (ODI)") +
+  labs(title = "Our development index by country, 1990-2020",
+       subtitle = "index created from life expectancy at birth and real GDP per capita (PPP)",
+       caption = "Source: World Bank. Note: ODI is a weighted average of GDP per capita PPP in 2017 constant prices and life expectancy at birth.")
+```
 
 
