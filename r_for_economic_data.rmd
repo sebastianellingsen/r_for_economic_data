@@ -1,11 +1,13 @@
 ---
-title: "xaringan in Github pages test"
-author: "TC"
-date: "2017/12/2"
+title: "R for Economic Data Labs"
+subtitle: ""
+author: "Sebastian Ellingsen"
 output:
   xaringan::moon_reader:
     lib_dir: libs
+    css: [default, metropolis-fonts, ninjutsu]
     nature:
+      ratio: 16:9
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -34,72 +36,118 @@ code.r.hljs.remark-code:hover{
 ```
 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
 
-# This is the recommended set up for flipbooks
-# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
-knitr::opts_chunk$set(fig.width = 6, fig.retina = 5,message = FALSE, warning = FALSE, comment = "", cache = F)
-library(flipbookr)
-library(tidyverse)
-library(readxl)
+# R for Economic Data Labs
 
-```
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+This is a document that collects the commands we have used in R so far in the course. 
 
-???
+--
 
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+As the course progresses we will extend this list. 
+
+--
+
+It also presents a walk through of the R scripts from all the labs so far.
 
 ---
-# I am title
-
-Hello, GH pages!
 
 
 
----
-# Some R code 
+# Style guide
 
-```{r chunk_10, include = T}
-hist(cars$speed)
-```
+To make the scripts understandable for other people and for yourself in the future, it is important to follow a few principles when writing code.
 
+- Add comments in scripts. This is done with a $\texttt{#}$. R will ignore anything that comes after a $\texttt{#}$.
 
+- Names should be descriptive and meaningful. 
 
----
-# Some more R code 
+- Use underscore to separate words in a variable name of several words, not spaces.
 
-```{r chunk_7, include = T}
-## Loading packages 
-library(readr)
-library(tidyverse)
+- Add line breaks and avoid very long lines. 
 
-## Loading and cleaning data 
-df <- read_csv('births.csv') %>% 
-  rename(age      = Age) %>% 
-  rename(n_women  = "Number of women") %>% 
-  rename(n_births = "Number of births") %>% 
-  filter(!is.na(n_women)) %>% 
-  mutate(afr = n_births/n_women)
+- Variable and function names should be written in lowercase. 
 
-```
+- Avoid using names that are the same as existing variables.
 
+- Add spacing between symbols such as $\texttt{+}$, $\texttt{=}$, and $\texttt{-}$.
+
+- Verically align some repetitive coding tasks.
 
 
 ---
-# even more R code 
-
-```{r chunk_8, include = T}
-## Calculating the total fertility rate 
-sum(df %>% select(afr)) %>% round(d = 2)
-# The total fertility rate is 0.57.
-```
 
 
 
+# Libraries in R
 
+- To install a library in R use $\texttt{install.packages("library name")}$. This typically only needs to be done once during this course. To update the library, you can use the same command.
+
+- To load a library in R use $\texttt{library(library name)}$. This needs to be done every time you load commands from a library.
+
+- It is good practice to only load the packages you need for each session. The reason is that some packages have the same function names. In this case, you need to specify from which package the function is from. This is done with $\texttt{library name::function name}$.
+
+- $\texttt{readr}$ has functionality for importing standard data formats in a convenient way. 
+
+- $\texttt{readxl}$ has functions for importing data stored in Excel.
+
+- $\texttt{tidyverse}$ has several functions that are convenient for working with data.
+
+---
+
+
+
+
+# General functions
+
+- $\texttt{%>%}$ is a function from the $\texttt{tidyverse}$ package. It tells R that we are referring to an object we have defined on a line above.
+
+- $\texttt{<-}$ is an assignment operator in R. You can assign an object to a name. For example, if you want to create a variable $\texttt{x}$ that takes the value $3$, you can write $\texttt{x <- 3}$. From our labs, we have seen how we can assign a plot or a dataset to a variable name as well. 
+
+- Addition: $\texttt{+}$, subtraction: $\texttt{-}$, multiplication: $\texttt{*}$, division: $\texttt{/}$.
+
+- Vectors are constructed using $\texttt{c()}$ (for concatenate). Ex: $\texttt{v <- c(1,2,3)}$.
+
+- $\texttt{ifelse(statement, if true, if false)}$ creates an indicator variable.
+
+
+---
+
+
+
+# Cleaning data
+
+- $\texttt{read_csv()}$ opens csv files in R.
+
+- $\texttt{read_excel()}$ opens excel files in R. 
+
+- $\texttt{select()}$ selects columns in a dataset.
+
+- $\texttt{filter()}$ selects rows in a dataset.
+
+- $\texttt{rename()}$ renames columns in a dataset.
+
+- $\texttt{mutate()}$ create a new column in a dataset.
+
+- $\texttt{lag( ,n = 1)}$ lags a variable $\texttt{n}$ rows.
+
+
+---
+
+
+
+
+
+
+# Plotting data 
+
+- $\texttt{ggplot()}$ is a command for plotting data.
+
+- $\texttt{geom_line()}$ connects a line between your data points.
+
+- $\texttt{geom_point()}$ plots the data points.
+
+- $\texttt{geom_bar()}$ plots a bar chart.
 
 
 
@@ -123,7 +171,7 @@ class: inverse, middle, center
 
 
 
-# Computer Lab 3
+# Computer Lab 1
 
 
 
@@ -135,48 +183,31 @@ class: inverse, middle, center
 ```{r, include = F}
 # This is the recommended set up for flipbooks
 # you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
-## Loading packages 
-library(readr)
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = F)
+library(flipbookr)
 library(tidyverse)
-library(ggrepel)
+library(readxl)
 
-## Loading and cleaning data 
-df <- read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
-  rename(year      = Year) %>% 
-  rename(country   = Entity) %>% 
-  rename(code      = Code) %>% 
-  rename(gdppc     = `GDP per capita`) %>% 
-  rename(life_exp  = `Life expectancy at birth (historical)`) %>% 
-  rename(pop       = `Population (historical estimates)`) %>% 
-  rename(continent = Continent) %>% 
-  select(country, continent, year, gdppc, life_exp, pop) %>% 
-  filter(year == 2015) %>%  
-  filter(!is.na(pop)) %>% 
-  filter(!is.na(gdppc)) 
+## Loading data 
+mpd2020 <- read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1400) %>% 
+  rename(gdppc = GBR)
 ```
 
 
-`r chunk_reveal("chunk_5")`
+`r chunk_reveal("chunk_1")`
 
-```{r chunk_5, include = FALSE}
-## Loading packages 
-library(readr)
+```{r chunk_1, include = FALSE}
+# Loading packages 
 library(tidyverse)
-library(ggrepel)
+library(readxl)
 
-## Loading and cleaning data 
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
-  rename(year      = Year) %>% 
-  rename(country   = Entity) %>% 
-  rename(code      = Code) %>% 
-  rename(gdppc     = `GDP per capita`) %>% 
-  rename(life_exp  = `Life expectancy at birth (historical)`) %>% 
-  rename(pop       = `Population (historical estimates)`) %>% 
-  rename(continent = Continent) %>% 
-  select(country, continent, year, gdppc, life_exp, pop) %>% 
-  filter(year == 2015) %>%  
-  filter(!is.na(pop)) %>% 
-  filter(!is.na(gdppc)) 
+# Loading and cleaning the data  
+read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1400) %>% 
+  rename(gdppc = GBR)
 ```
 
 
@@ -187,38 +218,33 @@ read_csv('life-expectancy-vs-gdp-per-capita.csv') %>%
 
 
 
-`r chunk_reveal("chunk_6")`
+`r chunk_reveal("chunk_2")`
 
-```{r chunk_6, include = FALSE}
-## Plotting the data 
-ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
-  geom_point(aes(size = pop), alpha = 0.6, stroke = 0.2)+
-  scale_size_continuous(range = c(0.5, 8),  breaks = c(6e+8, 1.3e+9), labels = c('600M', '1.3B'))+
-    xlab("GDP per capita (log)") +
-  ylab("Life expectancy at birth") +
-  labs(title = "Life expectancy vs. GDP per capita, 2015",
-       size = 'Population:',
-       color = ' ',
-       subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
-       caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
+```{r chunk_2, include = FALSE}
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
-  scale_y_continuous(n.breaks=8) +
-  geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
-  guides(size = guide_legend(override.aes=list(shape = 1)),
-         color = guide_legend(override.aes=list(shape = 15)))
+  scale_y_continuous(n.breaks=8)
 ```
 
 
