@@ -1063,6 +1063,854 @@ class: inverse, middle, center
 
 
 
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+*library(tidyverse)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+*library(readxl)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+*read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+```
+# A tibble: 773 x 170
+    year   AFG   AGO   ALB   ARE   ARG   ARM   AUS   AUT   AZE   BDI   BEL   BEN
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1    NA    NA   200    NA    NA    NA   360   500    NA    NA   300    NA
+ 2   730    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 3  1000    NA    NA   200    NA    NA    NA   400   700    NA    NA   400    NA
+ 4  1090    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 5  1150    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 6    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 7  1252    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 8  1253    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 9  1254    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+10  1255    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+# … with 763 more rows, and 157 more variables: BFA &lt;dbl&gt;, BGD &lt;dbl&gt;,
+#   BGR &lt;dbl&gt;, BHR &lt;dbl&gt;, BIH &lt;dbl&gt;, BLR &lt;dbl&gt;, BOL &lt;dbl&gt;, BRA &lt;dbl&gt;,
+#   BRB &lt;dbl&gt;, BWA &lt;dbl&gt;, CAF &lt;dbl&gt;, CAN &lt;dbl&gt;, CHE &lt;dbl&gt;, CHL &lt;dbl&gt;,
+#   CHN &lt;dbl&gt;, CIV &lt;dbl&gt;, CMR &lt;dbl&gt;, COD &lt;dbl&gt;, COG &lt;dbl&gt;, COL &lt;dbl&gt;,
+#   COM &lt;dbl&gt;, CPV &lt;dbl&gt;, CRI &lt;dbl&gt;, CSK &lt;dbl&gt;, CUB &lt;dbl&gt;, CYP &lt;dbl&gt;,
+#   CZE &lt;dbl&gt;, DEU &lt;dbl&gt;, DJI &lt;dbl&gt;, DMA &lt;dbl&gt;, DNK &lt;dbl&gt;, DOM &lt;dbl&gt;,
+#   DZA &lt;dbl&gt;, ECU &lt;dbl&gt;, EGY &lt;dbl&gt;, ESP &lt;dbl&gt;, EST &lt;dbl&gt;, ETH &lt;dbl&gt;,
+#   FIN &lt;dbl&gt;, FRA &lt;dbl&gt;, GAB &lt;dbl&gt;, GBR &lt;dbl&gt;, GEO &lt;dbl&gt;, GHA &lt;dbl&gt;,
+#   GIN &lt;dbl&gt;, GMB &lt;dbl&gt;, GNB &lt;dbl&gt;, GNQ &lt;dbl&gt;, GRC &lt;dbl&gt;, GTM &lt;dbl&gt;,
+#   HKG &lt;dbl&gt;, HND &lt;dbl&gt;, HRV &lt;dbl&gt;, HTI &lt;dbl&gt;, HUN &lt;dbl&gt;, IDN &lt;dbl&gt;,
+#   IND &lt;dbl&gt;, IRL &lt;dbl&gt;, IRN &lt;dbl&gt;, IRQ &lt;dbl&gt;, ISL &lt;dbl&gt;, ISR &lt;dbl&gt;,
+#   ITA &lt;dbl&gt;, JAM &lt;dbl&gt;, JOR &lt;dbl&gt;, JPN &lt;dbl&gt;, KAZ &lt;dbl&gt;, KEN &lt;dbl&gt;,
+#   KGZ &lt;dbl&gt;, KHM &lt;dbl&gt;, KOR &lt;dbl&gt;, KWT &lt;dbl&gt;, LAO &lt;dbl&gt;, LBN &lt;dbl&gt;,
+#   LBR &lt;dbl&gt;, LBY &lt;dbl&gt;, LCA &lt;dbl&gt;, LKA &lt;dbl&gt;, LSO &lt;dbl&gt;, LTU &lt;dbl&gt;,
+#   LUX &lt;dbl&gt;, LVA &lt;dbl&gt;, MAR &lt;dbl&gt;, MDA &lt;dbl&gt;, MDG &lt;dbl&gt;, MEX &lt;dbl&gt;,
+#   MKD &lt;dbl&gt;, MLI &lt;dbl&gt;, MLT &lt;dbl&gt;, MMR &lt;dbl&gt;, MNE &lt;dbl&gt;, MNG &lt;dbl&gt;,
+#   MOZ &lt;dbl&gt;, MRT &lt;dbl&gt;, MUS &lt;dbl&gt;, MWI &lt;dbl&gt;, MYS &lt;dbl&gt;, NAM &lt;dbl&gt;,
+#   NER &lt;dbl&gt;, NGA &lt;dbl&gt;, …
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1) %&gt;%
+* dplyr::select(year, GBR)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+```
+# A tibble: 773 x 2
+    year   GBR
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1     1   800
+ 2   730    NA
+ 3  1000  2000
+ 4  1090    NA
+ 5  1150    NA
+ 6    NA    NA
+ 7  1252    NA
+ 8  1253    NA
+ 9  1254    NA
+10  1255    NA
+# … with 763 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+* filter(year &gt;= 1980)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+```
+# A tibble: 39 x 2
+    year    GBR
+   &lt;dbl&gt;  &lt;dbl&gt;
+ 1  1980 56314 
+ 2  1981 56383.
+ 3  1982 56340.
+ 4  1983 56383.
+ 5  1984 56462.
+ 6  1985 56620.
+ 7  1986 56796.
+ 8  1987 56982.
+ 9  1988 57160.
+10  1989 57324.
+# … with 29 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_3-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year &gt;= 1980) %&gt;%
+* rename(pop = GBR)
+```
+]
+ 
+.panel2-chunk_3-auto[
+
+```
+# A tibble: 39 x 2
+    year    pop
+   &lt;dbl&gt;  &lt;dbl&gt;
+ 1  1980 56314 
+ 2  1981 56383.
+ 3  1982 56340.
+ 4  1983 56383.
+ 5  1984 56462.
+ 6  1985 56620.
+ 7  1986 56796.
+ 8  1987 56982.
+ 9  1988 57160.
+10  1989 57324.
+# … with 29 more rows
+```
+]
+
+&lt;style&gt;
+.panel1-chunk_3-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_3-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_3-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+---
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+*ggplot(data = mpd2020, aes(x = year, y = pop))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_01_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+* geom_line(lwd = 0.6)
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_02_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+*   xlab("Year")
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_03_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+* ylab("Population")
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_04_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+* labs(title = "Population, United Kingdom 1980 - 2018",
+*      subtitle = "Population measured in 1000s",
+*      caption = "Source: Maddison Project Database (MPD) 2020")
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_05_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+* theme(plot.title = element_text(size=12))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_06_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+* theme(plot.subtitle = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_07_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+* theme(plot.caption = element_text(size=6))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_08_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+* theme(axis.title = element_text(size = 11))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_09_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+* theme(strip.background = element_blank())
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+* theme(axis.line.x = element_line(size = 0.28, colour = "black"))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+* theme(axis.line.y = element_line(size = 0.28, colour = "black"))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+* theme(strip.placement = "outside")
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_13_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_14_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+* theme(panel.grid.major = element_line('grey', size = 0.1))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_15_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+* theme(legend.position = "none")
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_16_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+* theme(text=element_text(family="Palatino"))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_17_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_18_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_19_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+* scale_x_continuous(n.breaks=8)
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_20_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_4-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_x_continuous(n.breaks=8) +
+* scale_y_continuous(n.breaks=8)
+```
+]
+ 
+.panel2-chunk_4-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_4_auto_21_output-1.png" width="432" /&gt;
+]
+
+&lt;style&gt;
+.panel1-chunk_4-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_4-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_4-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
 
 
 
@@ -1148,7 +1996,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-*read_csv('life-expectancy-vs-gdp-per-capita.csv')
+*read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv')
 ```
 ]
  
@@ -1186,7 +2034,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
 * rename(year      = Year)
 ```
 ]
@@ -1225,7 +2073,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
 * rename(country   = Entity)
 ```
@@ -1265,7 +2113,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
 * rename(code      = Code)
@@ -1306,7 +2154,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1347,7 +2195,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1389,7 +2237,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1432,7 +2280,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1476,7 +2324,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1521,7 +2369,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1567,7 +2415,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1614,7 +2462,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %&gt;%
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %&gt;%
   rename(year      = Year) %&gt;%
   rename(country   = Entity) %&gt;%
   rename(code      = Code) %&gt;%
@@ -1847,7 +2695,7 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-* theme(plot.subtitle = element_text(size=9))
+*       theme(plot.subtitle = element_text(size=9))
 ```
 ]
  
@@ -1874,8 +2722,8 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-* theme(legend.title = element_text(size=9))
+        theme(plot.subtitle = element_text(size=9))+
+*       theme(legend.title = element_text(size=9))
 ```
 ]
  
@@ -1902,9 +2750,9 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-* theme(plot.caption = element_text(size=6, hjust = 0))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+*       theme(plot.caption = element_text(size=6, hjust = 0))
 ```
 ]
  
@@ -1931,10 +2779,10 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-* theme(axis.title = element_text(size = 11))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+*       theme(axis.title = element_text(size = 11))
 ```
 ]
  
@@ -1961,11 +2809,11 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-* theme(strip.background = element_blank())
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+*       theme(strip.background = element_blank())
 ```
 ]
  
@@ -1992,12 +2840,12 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-* theme(strip.placement = "outside")
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+*       theme(strip.placement = "outside")
 ```
 ]
  
@@ -2024,13 +2872,13 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+*       theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -2057,14 +2905,14 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+*       theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -2091,15 +2939,15 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-* theme(legend.key = element_rect(fill = NA))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+*       theme(legend.key = element_rect(fill = NA))
 ```
 ]
  
@@ -2126,16 +2974,16 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-* theme(text=element_text(family="Palatino"))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+*       theme(text=element_text(family="Palatino"))
 ```
 ]
  
@@ -2162,17 +3010,17 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+*       theme(panel.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -2199,18 +3047,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+*       theme(plot.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -2237,18 +3085,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
 * scale_x_continuous(n.breaks=8)
 ```
 ]
@@ -2276,18 +3124,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
 * scale_y_continuous(n.breaks=8)
 ```
@@ -2316,18 +3164,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
 * geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE)
@@ -2357,18 +3205,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
   geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
@@ -2399,6 +3247,1929 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
   font-size: 80%
 }
 .panel3-chunk_6-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 4
+
+
+
+
+
+---
+
+
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+*library(readr)
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+*library(tidyverse)
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+*read_csv('lab_4/births.csv')
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 12 x 3
+     Age `Number of women` `Number of births`
+   &lt;int&gt;             &lt;int&gt;              &lt;int&gt;
+ 1    25            370021              19905
+ 2    26            418522              18184
+ 3    27            441688              20592
+ 4    28            378440              17626
+ 5    29            360465              17019
+ 6    30            420106              18875
+ 7    31            402796              23879
+ 8    32            430794              20549
+ 9    33            445650              23422
+10    34            361045              23902
+11    35            377328              22207
+12    36                NA                 NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+* rename(age      = Age)
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 12 x 3
+     age `Number of women` `Number of births`
+   &lt;int&gt;             &lt;int&gt;              &lt;int&gt;
+ 1    25            370021              19905
+ 2    26            418522              18184
+ 3    27            441688              20592
+ 4    28            378440              17626
+ 5    29            360465              17019
+ 6    30            420106              18875
+ 7    31            402796              23879
+ 8    32            430794              20549
+ 9    33            445650              23422
+10    34            361045              23902
+11    35            377328              22207
+12    36                NA                 NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+* rename(n_women  = "Number of women")
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 12 x 3
+     age n_women `Number of births`
+   &lt;int&gt;   &lt;int&gt;              &lt;int&gt;
+ 1    25  370021              19905
+ 2    26  418522              18184
+ 3    27  441688              20592
+ 4    28  378440              17626
+ 5    29  360465              17019
+ 6    30  420106              18875
+ 7    31  402796              23879
+ 8    32  430794              20549
+ 9    33  445650              23422
+10    34  361045              23902
+11    35  377328              22207
+12    36      NA                 NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+  rename(n_women  = "Number of women") %&gt;%
+* rename(n_births = "Number of births")
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 12 x 3
+     age n_women n_births
+   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;
+ 1    25  370021    19905
+ 2    26  418522    18184
+ 3    27  441688    20592
+ 4    28  378440    17626
+ 5    29  360465    17019
+ 6    30  420106    18875
+ 7    31  402796    23879
+ 8    32  430794    20549
+ 9    33  445650    23422
+10    34  361045    23902
+11    35  377328    22207
+12    36      NA       NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+  rename(n_women  = "Number of women") %&gt;%
+  rename(n_births = "Number of births") %&gt;%
+* filter(!is.na(n_women))
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 11 x 3
+     age n_women n_births
+   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;
+ 1    25  370021    19905
+ 2    26  418522    18184
+ 3    27  441688    20592
+ 4    28  378440    17626
+ 5    29  360465    17019
+ 6    30  420106    18875
+ 7    31  402796    23879
+ 8    32  430794    20549
+ 9    33  445650    23422
+10    34  361045    23902
+11    35  377328    22207
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+  rename(n_women  = "Number of women") %&gt;%
+  rename(n_births = "Number of births") %&gt;%
+  filter(!is.na(n_women)) %&gt;%
+* mutate(afr = n_births/n_women)
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 11 x 4
+     age n_women n_births    afr
+   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;
+ 1    25  370021    19905 0.0538
+ 2    26  418522    18184 0.0434
+ 3    27  441688    20592 0.0466
+ 4    28  378440    17626 0.0466
+ 5    29  360465    17019 0.0472
+ 6    30  420106    18875 0.0449
+ 7    31  402796    23879 0.0593
+ 8    32  430794    20549 0.0477
+ 9    33  445650    23422 0.0526
+10    34  361045    23902 0.0662
+11    35  377328    22207 0.0589
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+  rename(n_women  = "Number of women") %&gt;%
+  rename(n_births = "Number of births") %&gt;%
+  filter(!is.na(n_women)) %&gt;%
+  mutate(afr = n_births/n_women)
+
+
+## Calculating the total fertility rate
+*sum(df %&gt;% select(afr)) %&gt;% round(d = 2)
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 11 x 4
+     age n_women n_births    afr
+   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;
+ 1    25  370021    19905 0.0538
+ 2    26  418522    18184 0.0434
+ 3    27  441688    20592 0.0466
+ 4    28  378440    17626 0.0466
+ 5    29  360465    17019 0.0472
+ 6    30  420106    18875 0.0449
+ 7    31  402796    23879 0.0593
+ 8    32  430794    20549 0.0477
+ 9    33  445650    23422 0.0526
+10    34  361045    23902 0.0662
+11    35  377328    22207 0.0589
+```
+
+```
+[1] 0.57
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_7-auto[
+
+```r
+## Loading packages
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data
+read_csv('lab_4/births.csv') %&gt;%
+  rename(age      = Age) %&gt;%
+  rename(n_women  = "Number of women") %&gt;%
+  rename(n_births = "Number of births") %&gt;%
+  filter(!is.na(n_women)) %&gt;%
+  mutate(afr = n_births/n_women)
+
+
+## Calculating the total fertility rate
+sum(df %&gt;% select(afr)) %&gt;% round(d = 2)
+# The total fertility rate is 0.57.
+```
+]
+ 
+.panel2-chunk_7-auto[
+
+```
+# A tibble: 11 x 4
+     age n_women n_births    afr
+   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;
+ 1    25  370021    19905 0.0538
+ 2    26  418522    18184 0.0434
+ 3    27  441688    20592 0.0466
+ 4    28  378440    17626 0.0466
+ 5    29  360465    17019 0.0472
+ 6    30  420106    18875 0.0449
+ 7    31  402796    23879 0.0593
+ 8    32  430794    20549 0.0477
+ 9    33  445650    23422 0.0526
+10    34  361045    23902 0.0662
+11    35  377328    22207 0.0589
+```
+
+```
+[1] 0.57
+```
+]
+
+&lt;style&gt;
+.panel1-chunk_7-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_7-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_7-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+*ggplot(data = df, aes(x = age, y = afr))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_01_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+* geom_line()
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_02_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+*   xlab("Age")
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_03_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+* ylab("Age specific fertility rate")
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_04_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+* labs(title    = "Age specific fertility rates",
+*      size     = 'Population:',
+*      subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+*      caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_05_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+* theme(plot.title        = element_text(size=12))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_06_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+* theme(plot.subtitle     = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_07_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+* theme(legend.title      = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_08_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+* theme(plot.caption      = element_text(size=6, hjust = 0))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_09_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+* theme(axis.title        = element_text(size = 11))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+* theme(strip.background  = element_blank())
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+* theme(strip.placement   = "outside")
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+* theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_13_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_14_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.key        = element_rect(fill = NA))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_15_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key        = element_rect(fill = NA))+
+* theme(text              = element_text(family="Palatino"))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_16_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key        = element_rect(fill = NA))+
+  theme(text              = element_text(family="Palatino"))+
+* theme(panel.background  = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_17_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_8-auto[
+
+```r
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key        = element_rect(fill = NA))+
+  theme(text              = element_text(family="Palatino"))+
+  theme(panel.background  = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background   = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_8-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_8_auto_18_output-1.png" width="432" /&gt;
+]
+
+&lt;style&gt;
+.panel1-chunk_8-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_8-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_8-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+*library(readxl)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+*library(tidyverse)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+*read_excel('lab_1/mpd2020.xlsx',
+*                     sheet = 4, skip = 1)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 773 x 170
+    year   AFG   AGO   ALB   ARE   ARG   ARM   AUS   AUT   AZE   BDI   BEL   BEN
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   956    NA
+ 2   730    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 3  1000    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 4  1090    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 5  1120    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 6    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 7  1252    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 8  1253    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 9  1254    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+10  1255    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+# … with 763 more rows, and 157 more variables: BFA &lt;dbl&gt;, BGD &lt;dbl&gt;,
+#   BGR &lt;dbl&gt;, BHR &lt;dbl&gt;, BIH &lt;dbl&gt;, BLR &lt;dbl&gt;, BOL &lt;dbl&gt;, BRA &lt;dbl&gt;,
+#   BRB &lt;dbl&gt;, BWA &lt;dbl&gt;, CAF &lt;dbl&gt;, CAN &lt;dbl&gt;, CHE &lt;dbl&gt;, CHL &lt;dbl&gt;,
+#   CHN &lt;dbl&gt;, CIV &lt;dbl&gt;, CMR &lt;dbl&gt;, COD &lt;dbl&gt;, COG &lt;dbl&gt;, COL &lt;dbl&gt;,
+#   COM &lt;dbl&gt;, CPV &lt;dbl&gt;, CRI &lt;dbl&gt;, CSK &lt;dbl&gt;, CUB &lt;dbl&gt;, CYP &lt;dbl&gt;,
+#   CZE &lt;dbl&gt;, DEU &lt;dbl&gt;, DJI &lt;dbl&gt;, DMA &lt;dbl&gt;, DNK &lt;dbl&gt;, DOM &lt;dbl&gt;,
+#   DZA &lt;dbl&gt;, ECU &lt;dbl&gt;, EGY &lt;dbl&gt;, ESP &lt;dbl&gt;, EST &lt;dbl&gt;, ETH &lt;dbl&gt;,
+#   FIN &lt;dbl&gt;, FRA &lt;dbl&gt;, GAB &lt;dbl&gt;, GBR &lt;dbl&gt;, GEO &lt;dbl&gt;, GHA &lt;dbl&gt;,
+#   GIN &lt;dbl&gt;, GMB &lt;dbl&gt;, GNB &lt;dbl&gt;, GNQ &lt;dbl&gt;, GRC &lt;dbl&gt;, GTM &lt;dbl&gt;,
+#   HKG &lt;dbl&gt;, HND &lt;dbl&gt;, HRV &lt;dbl&gt;, HTI &lt;dbl&gt;, HUN &lt;dbl&gt;, IDN &lt;dbl&gt;,
+#   IND &lt;dbl&gt;, IRL &lt;dbl&gt;, IRN &lt;dbl&gt;, IRQ &lt;dbl&gt;, ISL &lt;dbl&gt;, ISR &lt;dbl&gt;,
+#   ITA &lt;dbl&gt;, JAM &lt;dbl&gt;, JOR &lt;dbl&gt;, JPN &lt;dbl&gt;, KAZ &lt;dbl&gt;, KEN &lt;dbl&gt;,
+#   KGZ &lt;dbl&gt;, KHM &lt;dbl&gt;, KOR &lt;dbl&gt;, KWT &lt;dbl&gt;, LAO &lt;dbl&gt;, LBN &lt;dbl&gt;,
+#   LBR &lt;dbl&gt;, LBY &lt;dbl&gt;, LCA &lt;dbl&gt;, LKA &lt;dbl&gt;, LSO &lt;dbl&gt;, LTU &lt;dbl&gt;,
+#   LUX &lt;dbl&gt;, LVA &lt;dbl&gt;, MAR &lt;dbl&gt;, MDA &lt;dbl&gt;, MDG &lt;dbl&gt;, MEX &lt;dbl&gt;,
+#   MKD &lt;dbl&gt;, MLI &lt;dbl&gt;, MLT &lt;dbl&gt;, MMR &lt;dbl&gt;, MNE &lt;dbl&gt;, MNG &lt;dbl&gt;,
+#   MOZ &lt;dbl&gt;, MRT &lt;dbl&gt;, MUS &lt;dbl&gt;, MWI &lt;dbl&gt;, MYS &lt;dbl&gt;, NAM &lt;dbl&gt;,
+#   NER &lt;dbl&gt;, NGA &lt;dbl&gt;, …
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+* dplyr::select(year, GBR)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 773 x 2
+    year   GBR
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1     1    NA
+ 2   730    NA
+ 3  1000  1151
+ 4  1090    NA
+ 5  1120    NA
+ 6    NA    NA
+ 7  1252  1320
+ 8  1253  1328
+ 9  1254  1317
+10  1255  1285
+# … with 763 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+* filter(year  &gt;= 1979)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 40 x 2
+    year   GBR
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  1979 20988
+ 2  1980 20612
+ 3  1981 20319
+ 4  1982 20650
+ 5  1983 21366
+ 6  1984 21869
+ 7  1985 22579
+ 8  1986 23498
+ 9  1987 24536
+10  1988 25679
+# … with 30 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+* rename(gdppc = GBR)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 40 x 2
+    year gdppc
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  1979 20988
+ 2  1980 20612
+ 3  1981 20319
+ 4  1982 20650
+ 5  1983 21366
+ 6  1984 21869
+ 7  1985 22579
+ 8  1986 23498
+ 9  1987 24536
+10  1988 25679
+# … with 30 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+  rename(gdppc = GBR) %&gt;%
+* mutate(gdppc_1 = lag(gdppc, n = 1))
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 40 x 3
+    year gdppc gdppc_1
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+ 1  1979 20988      NA
+ 2  1980 20612   20988
+ 3  1981 20319   20612
+ 4  1982 20650   20319
+ 5  1983 21366   20650
+ 6  1984 21869   21366
+ 7  1985 22579   21869
+ 8  1986 23498   22579
+ 9  1987 24536   23498
+10  1988 25679   24536
+# … with 30 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+  rename(gdppc = GBR) %&gt;%
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %&gt;%
+* mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 40 x 4
+    year gdppc gdppc_1 gdppc_g
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1  1979 20988      NA   NA   
+ 2  1980 20612   20988   -1.79
+ 3  1981 20319   20612   -1.42
+ 4  1982 20650   20319    1.63
+ 5  1983 21366   20650    3.47
+ 6  1984 21869   21366    2.35
+ 7  1985 22579   21869    3.25
+ 8  1986 23498   22579    4.07
+ 9  1987 24536   23498    4.42
+10  1988 25679   24536    4.66
+# … with 30 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+  rename(gdppc = GBR) %&gt;%
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %&gt;%
+  mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100) %&gt;%
+* filter(year&gt;=1980)
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 39 x 4
+    year gdppc gdppc_1 gdppc_g
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1  1980 20612   20988   -1.79
+ 2  1981 20319   20612   -1.42
+ 3  1982 20650   20319    1.63
+ 4  1983 21366   20650    3.47
+ 5  1984 21869   21366    2.35
+ 6  1985 22579   21869    3.25
+ 7  1986 23498   22579    4.07
+ 8  1987 24536   23498    4.42
+ 9  1988 25679   24536    4.66
+10  1989 26164   25679    1.89
+# … with 29 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+  rename(gdppc = GBR) %&gt;%
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %&gt;%
+  mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100) %&gt;%
+  filter(year&gt;=1980) %&gt;%
+* mutate(positive = ifelse(gdppc_g&gt;0, 'positive', 'negative'))
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+```
+# A tibble: 39 x 5
+    year gdppc gdppc_1 gdppc_g positive
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
+ 1  1980 20612   20988   -1.79 negative
+ 2  1981 20319   20612   -1.42 negative
+ 3  1982 20650   20319    1.63 positive
+ 4  1983 21366   20650    3.47 positive
+ 5  1984 21869   21366    2.35 positive
+ 6  1985 22579   21869    3.25 positive
+ 7  1986 23498   22579    4.07 positive
+ 8  1987 24536   23498    4.42 positive
+ 9  1988 25679   24536    4.66 positive
+10  1989 26164   25679    1.89 positive
+# … with 29 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_9-auto[
+
+```r
+## Loading packages
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data
+read_excel('lab_1/mpd2020.xlsx',
+                      sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year  &gt;= 1979) %&gt;%
+  rename(gdppc = GBR) %&gt;%
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %&gt;%
+  mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100) %&gt;%
+  filter(year&gt;=1980) %&gt;%
+  mutate(positive = ifelse(gdppc_g&gt;0, 'positive', 'negative')) %&gt;%
+* write_csv(., 'growth_rates.csv')
+```
+]
+ 
+.panel2-chunk_9-auto[
+
+]
+
+&lt;style&gt;
+.panel1-chunk_9-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_9-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_9-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+*ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_01_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+* geom_bar(stat='identity')
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_02_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+*   xlab("Year")
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_03_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+* ylab("Growth rate")
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_04_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+* labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+*      color    = ' ',
+*      subtitle = "Real GDP per capita in 2011 dollars.",
+*      caption  = "Source: Maddison Project Database (MPD) 2020")
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_05_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+* theme(plot.title       = element_text(size=12))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_06_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+* theme(plot.subtitle    = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_07_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+* theme(legend.title     = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_08_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+* theme(plot.caption     = element_text(size=6, hjust = 0))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_09_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+* theme(axis.title       = element_text(size = 11))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+* theme(strip.background = element_blank())
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+* theme(strip.placement  = "outside")
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_13_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_14_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.key       = element_rect(fill = NA))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_15_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key       = element_rect(fill = NA))+
+* theme(legend.position  = "none")
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_16_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key       = element_rect(fill = NA))+
+  theme(legend.position  = "none")+
+* theme(text             = element_text(family="Palatino"))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_17_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key       = element_rect(fill = NA))+
+  theme(legend.position  = "none")+
+  theme(text             = element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_18_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_10-auto[
+
+```r
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key       = element_rect(fill = NA))+
+  theme(legend.position  = "none")+
+  theme(text             = element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background  = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_10-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_10_auto_19_output-1.png" width="432" /&gt;
+]
+
+&lt;style&gt;
+.panel1-chunk_10-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_10-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_10-auto {
   color: black;
   width: NA%;
   hight: 33%;

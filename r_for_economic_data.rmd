@@ -280,8 +280,72 @@ class: inverse, middle, center
 ---
 
 
+```{r, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = F)
+library(flipbookr)
+library(tidyverse)
+library(readxl)
+
+## Loading data 
+mpd2020 <- read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1980) %>% 
+  rename(pop = GBR)
+```
 
 
+`r chunk_reveal("chunk_3")`
+
+```{r chunk_3, include = FALSE}
+# Loading packages 
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data  
+read_excel("lab_2/mpd2020.xlsx", sheet = 5, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1980) %>% 
+  rename(pop = GBR)
+```
+
+
+
+
+---
+
+
+
+
+`r chunk_reveal("chunk_4")`
+
+```{r chunk_4, include = FALSE}
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = pop))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("Population")+
+  labs(title = "Population, United Kingdom 1980 - 2018",
+       subtitle = "Population measured in 1000s",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_x_continuous(n.breaks=8) +
+  scale_y_continuous(n.breaks=8)
+```
 
 
 
@@ -311,7 +375,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data 
-df <- read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
+df <- read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %>% 
   rename(year      = Year) %>% 
   rename(country   = Entity) %>% 
   rename(code      = Code) %>% 
@@ -335,7 +399,7 @@ library(tidyverse)
 library(ggrepel)
 
 ## Loading and cleaning data 
-read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
+read_csv('lab_3/life-expectancy-vs-gdp-per-capita.csv') %>% 
   rename(year      = Year) %>% 
   rename(country   = Entity) %>% 
   rename(code      = Code) %>% 
@@ -372,18 +436,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-  theme(plot.subtitle = element_text(size=9))+
-  theme(legend.title = element_text(size=9))+
-  theme(plot.caption = element_text(size=6, hjust = 0))+
-  theme(axis.title = element_text(size = 11))+
-  theme(strip.background = element_blank())+
-  theme(strip.placement = "outside")+
-  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-  theme(legend.key = element_rect(fill = NA))+
-  theme(text=element_text(family="Palatino"))+
-  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
   geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
@@ -391,6 +455,170 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
          color = guide_legend(override.aes=list(shape = 15)))
 ```
 
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 4
+
+
+
+
+
+---
+
+
+```{r, include = F}
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+## Loading and cleaning the dataa
+df <- read_csv('lab_4/births.csv') %>% 
+  rename(age      = Age, 
+         n_women  = "Number of women", 
+         n_births = "Number of births") %>% 
+  filter(!is.na(n_women)) %>% 
+  mutate(afr = n_births/n_women)
+
+```
+
+
+
+`r chunk_reveal("chunk_7")`
+
+```{r chunk_7, include = FALSE}
+## Loading packages 
+library(readr)
+library(tidyverse)
+
+
+## Loading and cleaning data 
+read_csv('lab_4/births.csv') %>% 
+  rename(age      = Age) %>% 
+  rename(n_women  = "Number of women") %>% 
+  rename(n_births = "Number of births") %>% 
+  filter(!is.na(n_women)) %>% 
+  mutate(afr = n_births/n_women)
+
+
+## Calculating the total fertility rate 
+sum(df %>% select(afr)) %>% round(d = 2)
+# The total fertility rate is 0.57.
+```
+
+
+
+
+---
+
+`r chunk_reveal("chunk_8")`
+
+```{r chunk_8, include = FALSE}
+ggplot(data = df, aes(x = age, y = afr))+
+  geom_line()+
+    xlab("Age") +
+  ylab("Age specific fertility rate") +
+  labs(title    = "Age specific fertility rates",
+       size     = 'Population:',
+       subtitle = "The age specific fertility rate gives births per woman for each age 25 and 35",
+       caption  = "Source: Introuction to Economic Data, Hans Sievertsen, 2022.")+
+  theme(plot.title        = element_text(size=12))+
+  theme(plot.subtitle     = element_text(size=9))+
+  theme(legend.title      = element_text(size=9))+
+  theme(plot.caption      = element_text(size=6, hjust = 0))+
+  theme(axis.title        = element_text(size = 11))+
+  theme(strip.background  = element_blank())+
+  theme(strip.placement   = "outside")+
+  theme(panel.grid.minor  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major  = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key        = element_rect(fill = NA))+
+  theme(text              = element_text(family="Palatino"))+
+  theme(panel.background  = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background   = element_rect(fill = "transparent", colour = NA))
+```
+
+
+
+
+
+
+---
+
+
+```{r, include = F}
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+## Loading and cleaning the dataa
+mpd2020 <- read_excel('lab_1/mpd2020.xlsx', 
+                      sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year  >= 1979) %>% 
+  rename(gdppc = GBR) %>% 
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %>% 
+  mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100) %>% 
+  filter(year>=1980) %>%
+  mutate(positive = ifelse(gdppc_g>0, 'positive', 'negative')) 
+
+```
+
+`r chunk_reveal("chunk_9")`
+
+```{r chunk_9, include = FALSE}
+## Loading packages 
+library(readxl)
+library(tidyverse)
+
+## Loading, cleaning and exporting the data 
+read_excel('lab_1/mpd2020.xlsx', 
+                      sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year  >= 1979) %>% 
+  rename(gdppc = GBR) %>% 
+  mutate(gdppc_1 = lag(gdppc, n = 1)) %>% 
+  mutate(gdppc_g = (gdppc/gdppc_1 - 1)*100) %>% 
+  filter(year>=1980) %>%
+  mutate(positive = ifelse(gdppc_g>0, 'positive', 'negative')) %>% 
+  write_csv(., 'growth_rates.csv')
+```
+
+
+---
+
+
+`r chunk_reveal("chunk_10")`
+
+```{r chunk_10, include = FALSE}
+## Plotting the growth rates
+ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
+  geom_bar(stat='identity') +
+    xlab("Year") +
+  ylab("Growth rate") +
+  labs(title    = "The growth rate of GDP per capita for the UK, 1980-2018",
+       color    = ' ',
+       subtitle = "Real GDP per capita in 2011 dollars.",
+       caption  = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title       = element_text(size=12))+
+  theme(plot.subtitle    = element_text(size=9))+
+  theme(legend.title     = element_text(size=9))+
+  theme(plot.caption     = element_text(size=6, hjust = 0))+
+  theme(axis.title       = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement  = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key       = element_rect(fill = NA))+
+  theme(legend.position  = "none")+
+  theme(text             = element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background  = element_rect(fill = "transparent", colour = NA))
+```
 
 
 

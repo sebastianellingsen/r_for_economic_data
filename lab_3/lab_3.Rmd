@@ -1,0 +1,182 @@
+---
+title: |
+  | \vspace{0.3cm} \Huge \singlespacing \textbf{Economic Data 2023 - Labs}  \vspace{0.28cm}
+  | \vspace{0.3cm} \large Week 3 \vspace{0.3cm}
+indent: true
+output:
+  pdf_document:
+    number_sections: true
+    fig_caption: true
+    citation_package: natbib 
+    # keep_tex: true
+citecolor: blue
+linkcolor: blue
+bibliography: library.bib
+biblio-style: apsr
+link-citations: true
+fontsize: 11pt
+# geometry: margin=3cm
+# geometry: margin=2.4cm
+geometry: margin=2.45cm
+# fontsize: medium
+linestretch: 2.5
+header-includes:
+   - \usepackage{setspace}\setstretch{2.9}
+   - \usepackage{caption}
+   - \captionsetup[figure]{font=small}
+   - \usepackage[font={scriptsize,it}, labelfont={bf}]{caption}
+   - \usepackage{threeparttable}
+   - \usepackage{booktabs}
+   - \usepackage{mathtools}
+   - \pagenumbering{gobble}
+   - \usepackage{setspace}
+   - \usepackage{amsmath}
+   - \usepackage{lmodern}
+   - \usepackage{bbm}
+   - \usepackage{lscape}
+   - \newcommand{\blandscape}{\begin{landscape}}
+   - \newcommand{\elandscape}{\end{landscape}}
+   - \usepackage{boldline}
+   - \usepackage{pdfpages}
+   - \usepackage{color}
+   - \usepackage{xcolor}
+   - \colorlet{Blue}{blue}
+   - \usepackage{enumitem}
+   - \usepackage{romannum}
+   - \usepackage{siunitx}
+   - \usepackage{gensymb}
+   - \usepackage[osf]{mathpazo}
+   - \usepackage{graphicx}
+   - \newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+   - \newtheorem{theorem}{Definition}
+   - \usepackage{indentfirst}
+   - \usepackage{pgf,tikz}
+   - \usetikzlibrary{shapes}
+   - \usepackage{bm}
+   - \usepackage{dirtytalk}
+   - \setlength{\bibsep}{3pt}
+editor_options:
+  chunk_output_type: console
+---
+
+\onehalfspacing
+\pagenumbering{arabic}
+
+
+
+# Part 1
+
+\noindent In this exercise we will create a scatter plot of GDP per capita and life expectancy by country by writing your own R script. We will use the [following plot](https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita?time=2015) from \textit{Our World in Data} as inspiration. The data are found in \verb|life_expectancy.csv| and is available in the folder for week 3 on Blackboard. To construct the plot, go through the following steps. 
+
+- Open an R script and save it as \verb|life_expectancy.R|.
+
+- Load the libraries \texttt{readr}, \texttt{tidyverse}, and \texttt{ggrepel}.
+
+- Download the dataset \verb|life_expectancy.csv| and store the data on your computer. Find the path to the directory you saved the dataset and load the it into R. [Useful command: \texttt{read\_csv()}]. 
+
+- Rename the variables \texttt{Life expectancy at birth (historical)} to \texttt{life\_exp}, \texttt{Population (historical estimates)} to \texttt{pop}, \texttt{Entity} to \texttt{country}, \texttt{Year} to \texttt{year}, \texttt{Continent} to \texttt{continent}, \texttt{GDP per capita} to \texttt{gdppc}. [Useful command: \texttt{rename()}]. 
+
+- Select the variables \texttt{country}, \texttt{continent}, \texttt{gdppc}, \texttt{year}, \texttt{life\_exp}, and \texttt{pop}. [Useful command: \texttt{select()}].
+
+- Remove all observations in the dataset for which the year is not 2015. [Useful command: \texttt{filter()}].
+
+- Remove all the observations with missing values for population or GDP per capita.  [Useful command: \texttt{filter()}, \texttt{!is.na()}].
+
+- Look at the dataset you created and check if the above steps worked as expected.  [Useful command: \texttt{View()}].
+
+- Download the R script \texttt{life\_exp\_gdp.R} from Blackboard, paste it into your script and generate the plot below.
+
+- Comment the plot. What is life expectancy and GDP per capita for your country in 2015?\bigskip 
+
+```{r, fig.align="center", echo=FALSE, message=FALSE, warning=FALSE, fig_caption= FALSE,fig.align="center", include=FALSE}
+
+library(readr)
+library(tidyverse)
+library(ggrepel)
+
+df <- read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
+  rename(year      = Year,
+         country   = Entity,
+         code      = Code,
+         gdppc     = `GDP per capita`,
+         life_exp  = `Life expectancy at birth (historical)`,
+         pop       = `Population (historical estimates)`,
+         continent = Continent) %>% 
+  select(country, continent, year, gdppc, life_exp, pop) %>%
+  filter(year == 2015,
+         !is.na(pop),
+         !is.na(gdppc))
+
+p1 <- ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+
+  geom_point(aes(size = pop), alpha = 0.5, stroke = 0.4)+
+  scale_size_continuous(range = c(0.5, 8), breaks = c(6e+8, 1.3e+9), labels = c('600M', '1.3B'))+
+  theme(plot.title = element_text(size=12),
+        plot.subtitle = element_text(size=9),
+        legend.title = element_text(size=9),
+        plot.caption = element_text(size=6, hjust = 0),
+        axis.title = element_text(size = 11),
+        strip.background = element_blank(),
+        strip.placement = "outside",
+        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
+        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
+        legend.key = element_rect(fill = NA),
+        text=element_text(family="Palatino"),
+        panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.background = element_rect(fill = "transparent", colour = NA))+
+  xlab("GDP per capita (log)") +
+  ylab("Life expectancy at birth") +
+  labs(title = "Life expectancy vs. GDP per capita, 2015",
+       size = 'Population:',
+       color = ' ',
+       subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
+       caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
+  scale_x_continuous(n.breaks=8) +
+  scale_y_continuous(n.breaks=8) +
+  geom_text_repel(aes(label=ifelse(country %in% c('China', 'Democratic Republic of Congo', 'South Africa', 'Indonesia', 'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States', 'North Korea', 'Ethiopia', 'Chad', 'India', 'Pakistan'), country, '')),
+                  size = 2.8,
+                  show.legend  = FALSE) +
+  guides(size = guide_legend(override.aes=list(shape = 1)),
+         color = guide_legend(override.aes=list(shape = 15)))
+  
+```
+
+```{r dev.args = list(bg = 'transparent'), fig.align="center", echo=FALSE, message=FALSE, warning=FALSE, fig_caption= FALSE, fig.height = 3.7, fig.width = 7.1, fig.align="center"}
+p1
+```
+
+\bigskip
+
+
+
+# Part 2
+
+\noindent Your country depends on the timing of your lab session:
+
+- Group 1: Tuesday 10:00 to 12:00: Slovenia
+
+- Group 2: Wednesday 9:00 to 11:00: Greece
+
+- Group 4: Wednesday 11:00 to 13:00: Finland
+
+- Group 3: Thursday 9:00 to 11:00: Spain
+
+
+\noindent Go to https://ec.europa.eu/eurostat/en/ and download data on
+
+- The total number of childbirths for as long a period you can find data for.
+
+- The number of women in each yearly age group from 15 to 45y for as long a period you can find data for.
+
+Go to https://data.worldbank.org/ and download data on
+
+- The life expectancy at birth for men, women, and total, for as long a period you can find dat afor. Section 10.3 in Introduction to Economic Data might be useful for this. But see also the appendix with some suggestions.
+
+- Try to create the chart and the Table shown in Figure 1 on your own. You might find the Excel Introduction helpful for that.
+
+- You can use the table and chart in your mini project 1. But remember you can only include two visualisations in total (i.e., one chart and one table, two tables or two charts).
+
+
+![](life_expectancy){width=90%}
+
+
+
