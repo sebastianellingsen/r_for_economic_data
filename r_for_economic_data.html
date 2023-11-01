@@ -175,6 +175,891 @@ To make the scripts understandable for other people and for yourself in the futu
 
 
 
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 1
+
+
+
+
+
+---
+
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+*library(tidyverse)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+*library(readxl)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+*read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+```
+# A tibble: 773 x 170
+    year   AFG   AGO   ALB   ARE   ARG   ARM   AUS   AUT   AZE   BDI   BEL   BEN
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   956    NA
+ 2   730    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 3  1000    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 4  1090    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 5  1120    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 6    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 7  1252    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 8  1253    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+ 9  1254    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+10  1255    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+# … with 763 more rows, and 157 more variables: BFA &lt;dbl&gt;, BGD &lt;dbl&gt;,
+#   BGR &lt;dbl&gt;, BHR &lt;dbl&gt;, BIH &lt;dbl&gt;, BLR &lt;dbl&gt;, BOL &lt;dbl&gt;, BRA &lt;dbl&gt;,
+#   BRB &lt;dbl&gt;, BWA &lt;dbl&gt;, CAF &lt;dbl&gt;, CAN &lt;dbl&gt;, CHE &lt;dbl&gt;, CHL &lt;dbl&gt;,
+#   CHN &lt;dbl&gt;, CIV &lt;dbl&gt;, CMR &lt;dbl&gt;, COD &lt;dbl&gt;, COG &lt;dbl&gt;, COL &lt;dbl&gt;,
+#   COM &lt;dbl&gt;, CPV &lt;dbl&gt;, CRI &lt;dbl&gt;, CSK &lt;dbl&gt;, CUB &lt;dbl&gt;, CYP &lt;dbl&gt;,
+#   CZE &lt;dbl&gt;, DEU &lt;dbl&gt;, DJI &lt;dbl&gt;, DMA &lt;dbl&gt;, DNK &lt;dbl&gt;, DOM &lt;dbl&gt;,
+#   DZA &lt;dbl&gt;, ECU &lt;dbl&gt;, EGY &lt;dbl&gt;, ESP &lt;dbl&gt;, EST &lt;dbl&gt;, ETH &lt;dbl&gt;,
+#   FIN &lt;dbl&gt;, FRA &lt;dbl&gt;, GAB &lt;dbl&gt;, GBR &lt;dbl&gt;, GEO &lt;dbl&gt;, GHA &lt;dbl&gt;,
+#   GIN &lt;dbl&gt;, GMB &lt;dbl&gt;, GNB &lt;dbl&gt;, GNQ &lt;dbl&gt;, GRC &lt;dbl&gt;, GTM &lt;dbl&gt;,
+#   HKG &lt;dbl&gt;, HND &lt;dbl&gt;, HRV &lt;dbl&gt;, HTI &lt;dbl&gt;, HUN &lt;dbl&gt;, IDN &lt;dbl&gt;,
+#   IND &lt;dbl&gt;, IRL &lt;dbl&gt;, IRN &lt;dbl&gt;, IRQ &lt;dbl&gt;, ISL &lt;dbl&gt;, ISR &lt;dbl&gt;,
+#   ITA &lt;dbl&gt;, JAM &lt;dbl&gt;, JOR &lt;dbl&gt;, JPN &lt;dbl&gt;, KAZ &lt;dbl&gt;, KEN &lt;dbl&gt;,
+#   KGZ &lt;dbl&gt;, KHM &lt;dbl&gt;, KOR &lt;dbl&gt;, KWT &lt;dbl&gt;, LAO &lt;dbl&gt;, LBN &lt;dbl&gt;,
+#   LBR &lt;dbl&gt;, LBY &lt;dbl&gt;, LCA &lt;dbl&gt;, LKA &lt;dbl&gt;, LSO &lt;dbl&gt;, LTU &lt;dbl&gt;,
+#   LUX &lt;dbl&gt;, LVA &lt;dbl&gt;, MAR &lt;dbl&gt;, MDA &lt;dbl&gt;, MDG &lt;dbl&gt;, MEX &lt;dbl&gt;,
+#   MKD &lt;dbl&gt;, MLI &lt;dbl&gt;, MLT &lt;dbl&gt;, MMR &lt;dbl&gt;, MNE &lt;dbl&gt;, MNG &lt;dbl&gt;,
+#   MOZ &lt;dbl&gt;, MRT &lt;dbl&gt;, MUS &lt;dbl&gt;, MWI &lt;dbl&gt;, MYS &lt;dbl&gt;, NAM &lt;dbl&gt;,
+#   NER &lt;dbl&gt;, NGA &lt;dbl&gt;, …
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+* dplyr::select(year, GBR)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+```
+# A tibble: 773 x 2
+    year   GBR
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1     1    NA
+ 2   730    NA
+ 3  1000  1151
+ 4  1090    NA
+ 5  1120    NA
+ 6    NA    NA
+ 7  1252  1320
+ 8  1253  1328
+ 9  1254  1317
+10  1255  1285
+# … with 763 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+* filter(year &gt;= 1400)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+```
+# A tibble: 619 x 2
+    year   GBR
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  1400  1717
+ 2  1401  1696
+ 3  1402  1742
+ 4  1403  1770
+ 5  1404  1801
+ 6  1405  1805
+ 7  1406  1674
+ 8  1407  1677
+ 9  1408  1552
+10  1409  1607
+# … with 609 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_1-auto[
+
+```r
+# Loading packages
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data
+read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+  dplyr::select(year, GBR) %&gt;%
+  filter(year &gt;= 1400) %&gt;%
+* rename(gdppc = GBR)
+```
+]
+ 
+.panel2-chunk_1-auto[
+
+```
+# A tibble: 619 x 2
+    year gdppc
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  1400  1717
+ 2  1401  1696
+ 3  1402  1742
+ 4  1403  1770
+ 5  1404  1801
+ 6  1405  1805
+ 7  1406  1674
+ 8  1407  1677
+ 9  1408  1552
+10  1409  1607
+# … with 609 more rows
+```
+]
+
+&lt;style&gt;
+.panel1-chunk_1-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_1-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_1-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+---
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+*ggplot(data = mpd2020, aes(x = year, y = gdppc))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_01_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+* geom_line(lwd = 0.6)
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_02_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+*   xlab("Year")
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_03_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+* ylab("GDP per capita")
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_04_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+* labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+*      subtitle = "Real GDP per capita in 2011 dollars",
+*      caption = "Source: Maddison Project Database (MPD) 2020")
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_05_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+* theme(plot.title = element_text(size=12))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_06_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+* theme(plot.subtitle = element_text(size=9))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_07_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+* theme(plot.caption = element_text(size=6))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_08_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+* theme(axis.title = element_text(size = 11))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_09_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+* theme(strip.background = element_blank())
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+* theme(axis.line.x = element_line(size = 0.28, colour = "black"))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+* theme(axis.line.y = element_line(size = 0.28, colour = "black"))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+* theme(strip.placement = "outside")
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_13_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_14_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+* theme(panel.grid.major = element_line('grey', size = 0.1))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_15_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+* theme(legend.position = "none")
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_16_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+* theme(text=element_text(family="Palatino"))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_17_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_18_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_19_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+* scale_x_continuous(n.breaks=8)
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_20_output-1.png" width="432" /&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_2-auto[
+
+```r
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_x_continuous(n.breaks=8) +
+* scale_y_continuous(n.breaks=8)
+```
+]
+ 
+.panel2-chunk_2-auto[
+&lt;img src="r_for_economic_data_files/figure-html/chunk_2_auto_21_output-1.png" width="432" /&gt;
+]
+
+&lt;style&gt;
+.panel1-chunk_2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_2-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 2
+
+
+
+
+
+---
+
+
 
 
 
@@ -962,7 +1847,7 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-*       theme(plot.subtitle = element_text(size=9))
+* theme(plot.subtitle = element_text(size=9))
 ```
 ]
  
@@ -989,8 +1874,8 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-*       theme(legend.title = element_text(size=9))
+  theme(plot.subtitle = element_text(size=9))+
+* theme(legend.title = element_text(size=9))
 ```
 ]
  
@@ -1017,9 +1902,9 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-*       theme(plot.caption = element_text(size=6, hjust = 0))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+* theme(plot.caption = element_text(size=6, hjust = 0))
 ```
 ]
  
@@ -1046,10 +1931,10 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-*       theme(axis.title = element_text(size = 11))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+* theme(axis.title = element_text(size = 11))
 ```
 ]
  
@@ -1076,11 +1961,11 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-*       theme(strip.background = element_blank())
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+* theme(strip.background = element_blank())
 ```
 ]
  
@@ -1107,12 +1992,12 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-*       theme(strip.placement = "outside")
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+* theme(strip.placement = "outside")
 ```
 ]
  
@@ -1139,13 +2024,13 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-*       theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+* theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -1172,14 +2057,14 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-*       theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))
 ```
 ]
  
@@ -1206,15 +2091,15 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-*       theme(legend.key = element_rect(fill = NA))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+* theme(legend.key = element_rect(fill = NA))
 ```
 ]
  
@@ -1241,16 +2126,16 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-*       theme(text=element_text(family="Palatino"))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+* theme(text=element_text(family="Palatino"))
 ```
 ]
  
@@ -1277,17 +2162,17 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-*       theme(panel.background = element_rect(fill = "transparent", colour = NA))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+* theme(panel.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -1314,18 +2199,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-*       theme(plot.background = element_rect(fill = "transparent", colour = NA))
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+* theme(plot.background = element_rect(fill = "transparent", colour = NA))
 ```
 ]
  
@@ -1352,18 +2237,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
 * scale_x_continuous(n.breaks=8)
 ```
 ]
@@ -1391,18 +2276,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
 * scale_y_continuous(n.breaks=8)
 ```
@@ -1431,18 +2316,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
 * geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE)
@@ -1472,18 +2357,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+  #
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
   geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
