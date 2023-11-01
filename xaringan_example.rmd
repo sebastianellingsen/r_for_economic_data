@@ -1,0 +1,230 @@
+---
+title: "xaringan in Github pages test"
+author: "TC"
+date: "2017/12/2"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+
+code.r.hljs.remark-code{
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+code.r.hljs.remark-code:hover{
+  overflow-x:visible;
+  width: 500px;
+  border-style: solid;
+}
+```
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
+knitr::opts_chunk$set(fig.width = 6, fig.retina = 5,message = FALSE, warning = FALSE, comment = "", cache = F)
+library(flipbookr)
+library(tidyverse)
+library(readxl)
+
+```
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+???
+
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+
+---
+# I am title
+
+Hello, GH pages!
+
+
+
+---
+# Some R code 
+
+```{r chunk_10, include = T}
+hist(cars$speed)
+```
+
+
+
+---
+# Some more R code 
+
+```{r chunk_7, include = T}
+## Loading packages 
+library(readr)
+library(tidyverse)
+
+## Loading and cleaning data 
+df <- read_csv('births.csv') %>% 
+  rename(age      = Age) %>% 
+  rename(n_women  = "Number of women") %>% 
+  rename(n_births = "Number of births") %>% 
+  filter(!is.na(n_women)) %>% 
+  mutate(afr = n_births/n_women)
+
+```
+
+
+
+---
+# even more R code 
+
+```{r chunk_8, include = T}
+## Calculating the total fertility rate 
+sum(df %>% select(afr)) %>% round(d = 2)
+# The total fertility rate is 0.57.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 3
+
+
+
+
+
+---
+
+
+```{r, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
+## Loading packages 
+library(readr)
+library(tidyverse)
+library(ggrepel)
+
+## Loading and cleaning data 
+df <- read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
+  rename(year      = Year) %>% 
+  rename(country   = Entity) %>% 
+  rename(code      = Code) %>% 
+  rename(gdppc     = `GDP per capita`) %>% 
+  rename(life_exp  = `Life expectancy at birth (historical)`) %>% 
+  rename(pop       = `Population (historical estimates)`) %>% 
+  rename(continent = Continent) %>% 
+  select(country, continent, year, gdppc, life_exp, pop) %>% 
+  filter(year == 2015) %>%  
+  filter(!is.na(pop)) %>% 
+  filter(!is.na(gdppc)) 
+```
+
+
+`r chunk_reveal("chunk_5")`
+
+```{r chunk_5, include = FALSE}
+## Loading packages 
+library(readr)
+library(tidyverse)
+library(ggrepel)
+
+## Loading and cleaning data 
+read_csv('life-expectancy-vs-gdp-per-capita.csv') %>% 
+  rename(year      = Year) %>% 
+  rename(country   = Entity) %>% 
+  rename(code      = Code) %>% 
+  rename(gdppc     = `GDP per capita`) %>% 
+  rename(life_exp  = `Life expectancy at birth (historical)`) %>% 
+  rename(pop       = `Population (historical estimates)`) %>% 
+  rename(continent = Continent) %>% 
+  select(country, continent, year, gdppc, life_exp, pop) %>% 
+  filter(year == 2015) %>%  
+  filter(!is.na(pop)) %>% 
+  filter(!is.na(gdppc)) 
+```
+
+
+
+
+---
+
+
+
+
+`r chunk_reveal("chunk_6")`
+
+```{r chunk_6, include = FALSE}
+## Plotting the data 
+ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
+  geom_point(aes(size = pop), alpha = 0.6, stroke = 0.2)+
+  scale_size_continuous(range = c(0.5, 8),  breaks = c(6e+8, 1.3e+9), labels = c('600M', '1.3B'))+
+    xlab("GDP per capita (log)") +
+  ylab("Life expectancy at birth") +
+  labs(title = "Life expectancy vs. GDP per capita, 2015",
+       size = 'Population:',
+       color = ' ',
+       subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
+       caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
+  theme(plot.title = element_text(size=12))+
+        theme(plot.subtitle = element_text(size=9))+
+        theme(legend.title = element_text(size=9))+
+        theme(plot.caption = element_text(size=6, hjust = 0))+
+        theme(axis.title = element_text(size = 11))+
+        theme(strip.background = element_blank())+
+        theme(strip.placement = "outside")+
+        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+        theme(legend.key = element_rect(fill = NA))+
+        theme(text=element_text(family="Palatino"))+
+        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_x_continuous(n.breaks=8) +
+  scale_y_continuous(n.breaks=8) +
+  geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
+  guides(size = guide_legend(override.aes=list(shape = 1)),
+         color = guide_legend(override.aes=list(shape = 15)))
+```
+
+
+
+
+
+
+
+
