@@ -179,6 +179,107 @@ To make the scripts understandable for other people and for yourself in the futu
 
 
 
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 1
+
+
+
+
+
+---
+
+
+```{r, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = F)
+library(flipbookr)
+library(tidyverse)
+library(readxl)
+
+## Loading data 
+mpd2020 <- read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1400) %>% 
+  rename(gdppc = GBR)
+```
+
+
+`r chunk_reveal("chunk_1")`
+
+```{r chunk_1, include = FALSE}
+# Loading packages 
+library(tidyverse)
+library(readxl)
+
+# Loading and cleaning the data  
+read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+  dplyr::select(year, GBR) %>% 
+  filter(year >= 1400) %>% 
+  rename(gdppc = GBR)
+```
+
+
+
+
+---
+
+
+
+
+`r chunk_reveal("chunk_2")`
+
+```{r chunk_2, include = FALSE}
+## Plotting the hockey stick graph
+ggplot(data = mpd2020, aes(x = year, y = gdppc))+
+  geom_line(lwd = 0.6) +
+    xlab("Year") +
+  ylab("GDP per capita")+
+  labs(title = "GDP per capita, United Kingdom 1400 - 2018",
+       subtitle = "Real GDP per capita in 2011 dollars",
+       caption = "Source: Maddison Project Database (MPD) 2020")+
+  theme(plot.title = element_text(size=12))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(plot.caption = element_text(size=6))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(axis.line.x = element_line(size = 0.28, colour = "black"))+
+  theme(axis.line.y = element_line(size = 0.28, colour = "black"))+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1))+
+  theme(panel.grid.major = element_line('grey', size = 0.1))+
+  theme(legend.position = "none")+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_x_continuous(n.breaks=8) +
+  scale_y_continuous(n.breaks=8)
+```
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 2
+
+
+
+
+
+---
+
+
 
 
 
@@ -271,18 +372,18 @@ ggplot(data = df, aes(x = log(gdppc), y = life_exp, color = continent))+#
        subtitle = "GDP per capita is adjusted for inflation and differences in the cost of living between countries.",
        caption = "Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005); Maddison Project Database 2020 (Bolt and van Zanden, 2020).\nNote: GDP per capita is expressed in international-dollars at 2011 prices.")+
   theme(plot.title = element_text(size=12))+
-        theme(plot.subtitle = element_text(size=9))+
-        theme(legend.title = element_text(size=9))+
-        theme(plot.caption = element_text(size=6, hjust = 0))+
-        theme(axis.title = element_text(size = 11))+
-        theme(strip.background = element_blank())+
-        theme(strip.placement = "outside")+
-        theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
-        theme(legend.key = element_rect(fill = NA))+
-        theme(text=element_text(family="Palatino"))+
-        theme(panel.background = element_rect(fill = "transparent", colour = NA))+
-        theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.subtitle = element_text(size=9))+
+  theme(legend.title = element_text(size=9))+
+  theme(plot.caption = element_text(size=6, hjust = 0))+
+  theme(axis.title = element_text(size = 11))+
+  theme(strip.background = element_blank())+
+  theme(strip.placement = "outside")+
+  theme(panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'))+
+  theme(legend.key = element_rect(fill = NA))+
+  theme(text=element_text(family="Palatino"))+
+  theme(panel.background = element_rect(fill = "transparent", colour = NA))+
+  theme(plot.background = element_rect(fill = "transparent", colour = NA))+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8) +
   geom_text_repel(aes(label=ifelse(country %in% c('China','Democratic Republic of Congo', 'South Africa', 'Indonesia',  'Equatorial Guinea', 'Trinidad and Tobago', 'Italy', 'Poland', 'Brazil', 'Italy', 'Poland', 'Angola', 'Nigeria', 'United States',  'North Korea', 'Ethiopia',  'Chad', 'India', 'Pakistan'), country, '')),size = 3, show.legend  = FALSE) +
