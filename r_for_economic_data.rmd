@@ -200,6 +200,7 @@ knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment =
 library(flipbookr)
 library(tidyverse)
 library(readxl)
+library(scales)
 
 ## Loading data 
 mpd2020 <- read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
@@ -254,6 +255,7 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc))+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
   theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_y_continuous(label=comma)+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8)
 ```
@@ -339,6 +341,7 @@ ggplot(data = mpd2020, aes(x = year, y = pop))+
   theme(text=element_text(family="Palatino"))+
   theme(panel.background = element_rect(fill = "transparent", colour = NA))+
   theme(plot.background = element_rect(fill = "transparent", colour = NA))+
+  scale_y_continuous(label=comma)+
   scale_x_continuous(n.breaks=8) +
   scale_y_continuous(n.breaks=8)
 ```
@@ -657,25 +660,6 @@ class: inverse, middle, center
 library(tidyverse)
 library(readr)
 
-## Loading and cleaning the dataa
-df <- read_csv('lab_4/births.csv') %>% 
-  rename(age      = Age, 
-         n_women  = "Number of women", 
-         n_births = "Number of births") %>% 
-  filter(!is.na(n_women)) %>% 
-  mutate(afr = n_births/n_women)
-
-```
-
-
-
-`r chunk_reveal("chunk_11")`
-
-```{r chunk_11, include = FALSE}
-## Loading libraries
-library(tidyverse)
-library(readr)
-
 
 ## Loading and cleaning the data on life satisfaction  
 life_sat <- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %>% 
@@ -699,6 +683,226 @@ df <- life_sat %>%
   filter(!is.na(life_sat), 
          !is.na(gdppc), 
          country!='EU27_2020') 
+
+```
+
+
+
+`r chunk_reveal("chunk_11")`
+
+```{r chunk_11, include = FALSE}
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction  
+read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %>% 
+  select(geo, TIME_PERIOD, OBS_VALUE) %>% 
+  rename(country  = geo) %>% 
+  rename(year     = TIME_PERIOD) %>%  
+  rename(life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita   
+read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %>% 
+  select(geo, TIME_PERIOD, OBS_VALUE) %>% 
+  rename(country = geo) %>% 
+  rename(year    = TIME_PERIOD) %>% 
+  rename(gdppc   = OBS_VALUE)
+
+```
+
+
+
+
+---
+
+`r chunk_reveal("chunk_12")`
+
+```{r chunk_12, include = FALSE}
+## Combining the datasets 
+life_sat %>% 
+  full_join(gdppc, by = c('country', 'year')) %>% 
+  filter(!is.na(life_sat)) %>%  
+  filter(!is.na(gdppc)) %>%  
+  filter(country!='EU27_2020') 
+```
+
+
+
+
+
+---
+
+
+
+
+`r chunk_reveal("chunk_13")`
+
+```{r chunk_13, include = FALSE}
+
+## Plotting the data 
+ggplot(data=df, aes(x = gdppc, y = life_sat, shape = as.factor(year)))+
+  geom_point(size = 1.3)+
+  scale_shape_manual(values=c(0,3,1))+
+  theme(plot.title = element_text(size=12),
+        plot.subtitle = element_text(size=9),
+        legend.title = element_blank(),
+        legend.position="bottom",
+        plot.caption = element_text(size=6, hjust = 0),
+        axis.title = element_text(size = 11),
+        strip.background = element_blank(),
+        strip.placement = "outside",
+        panel.grid.minor = element_line('grey', size = 0.1, linetype = 'dashed'),
+        panel.grid.major = element_line('grey', size = 0.1, linetype = 'dashed'),
+        legend.key = element_rect(fill = NA),
+        text=element_text(family="Palatino"),
+        panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.background = element_rect(fill = "transparent", colour = NA))+
+  xlab("Real GDP per capita") +
+  ylab("Overall life satisfaction (1=lowest, 10=highest)") +
+  scale_y_continuous(label=comma)+
+  labs(title = "Life satisfaction vs. GDP per capita",
+       size = 'Population:',
+       color = ' ',
+       subtitle = "GDP per capita is measured in 2010 prices",
+       caption = "Source: Eurostat (2023). Note: Chain linked volumes (2010), euro per capita.")
+```
+
+
+
+
+
+
+
+
+
+
+---
+
+
+```{r, include = F}
+countries <- c("United Kingdom", 
+               "United States",
+               "Austria", 
+               "Australia",
+               "Belgium",
+               "Switzerland",
+               "Denmark",
+               "Spain",
+               "France",
+               "Greece",
+               "Italy",
+               "Japan",
+               "Netherlands",
+               "Norway",
+               "New Zealand",
+               "Poland",
+               "Portugal",
+               "Slovak Republic",
+               "Sweden")
+
+
+## Life expectancy
+life_exp <- read_csv("lab_5/wb/API_SP.DYN.LE00.IN_DS2_en_csv_v2_5871609.csv", skip = 4) %>% 
+  select(-"Indicator Name", -"Indicator Code") %>% 
+  rename(country = "Country Name",
+         ccode   = "Country Code") %>% 
+  gather(year, life_exp, 3:66) %>% 
+  filter(year>=1990, year<=2020) %>% 
+  filter(country %in% countries)%>% 
+  mutate(life_exp = as.numeric(life_exp))
+
+
+## GDP per capita ppp in constant prices
+gdppc <- read_csv("lab_5/wb/API_NY.GDP.PCAP.PP.KD_DS2_en_csv_v2_5873868.csv", skip = 4) %>% 
+  select(-"Indicator Name", -"Indicator Code") %>% 
+  rename(country = "Country Name",
+         ccode   = "Country Code") %>% 
+  gather(year, gdppc, 3:66) %>% 
+  filter(year>=1990, year<=2020) %>% 
+  filter(country %in% countries) %>% 
+  mutate(gdppc = as.numeric(gdppc))
+
+
+## Combining the datasets
+df <- life_exp %>% 
+  full_join(gdppc, by = c('country', 'ccode', 'year')) %>% 
+  mutate(lei = (life_exp - 20)/(85-20),
+         ii  = (log(gdppc) - log(100))/(log(75000) - log(100)),
+         odi = (lei * ii)^0.5) %>% 
+  mutate(uk = ifelse(country == 'United Kingdom', 1, 0) %>% as.factor())
+
+```
+
+
+
+
+`r chunk_reveal("chunk_14")`
+
+```{r chunk_14, include = FALSE}
+countries <- c("United Kingdom", 
+               "United States",
+               "Austria", 
+               "Australia",
+               "Belgium",
+               "Switzerland",
+               "Denmark",
+               "Spain",
+               "France",
+               "Greece",
+               "Italy",
+               "Japan",
+               "Netherlands",
+               "Norway",
+               "New Zealand",
+               "Poland",
+               "Portugal",
+               "Slovak Republic",
+               "Sweden")
+
+
+## Life expectancy
+read_csv("lab_5/wb/API_SP.DYN.LE00.IN_DS2_en_csv_v2_5871609.csv", skip = 4) %>% 
+  select(-"Indicator Name", -"Indicator Code") %>% 
+  rename(country = "Country Name",
+         ccode   = "Country Code") %>% 
+  gather(year, life_exp, 3:66) %>% 
+  filter(year>=1990, year<=2020) %>% 
+  filter(country %in% countries)%>% 
+  mutate(life_exp = as.numeric(life_exp))
+
+
+```
+
+
+---
+
+
+
+`r chunk_reveal("chunk_15")`
+
+```{r chunk_15, include = FALSE}
+
+## GDP per capita ppp in constant prices
+read_csv("lab_5/wb/API_NY.GDP.PCAP.PP.KD_DS2_en_csv_v2_5873868.csv", skip = 4) %>% 
+  select(-"Indicator Name", -"Indicator Code") %>% 
+  rename(country = "Country Name",
+         ccode   = "Country Code") %>% 
+  gather(year, gdppc, 3:66) %>% 
+  filter(year>=1990, year<=2020) %>% 
+  filter(country %in% countries) %>% 
+  mutate(gdppc = as.numeric(gdppc))
+
+
+## Combining the datasets
+life_exp %>% 
+  full_join(gdppc, by = c('country', 'ccode', 'year')) %>% 
+  mutate(lei = (life_exp - 20)/(85-20),
+         ii  = (log(gdppc) - log(100))/(log(75000) - log(100)),
+         odi = (lei * ii)^0.5) %>% 
+  mutate(uk = ifelse(country == 'United Kingdom', 1, 0) %>% as.factor())
 ```
 
 
