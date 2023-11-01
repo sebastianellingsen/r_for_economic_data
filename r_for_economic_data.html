@@ -5028,6 +5028,385 @@ ggplot(data = mpd2020, aes(x = year, y = gdppc_g, fill = positive))+
   font-size: 80%
 }
 &lt;/style&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+
+
+# Computer Lab 5
+
+
+
+
+
+---
+
+
+
+
+
+
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+*library(tidyverse)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+*library(readr)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+*life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv")
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+* select(geo, TIME_PERIOD, OBS_VALUE)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+* rename(country  = geo,
+*        year     = TIME_PERIOD,
+*        life_sat = OBS_VALUE)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+*gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv")
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %&gt;%
+* select(geo, TIME_PERIOD, OBS_VALUE)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+* rename(country = geo,
+*        year    = TIME_PERIOD,
+*        gdppc   = OBS_VALUE)
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country = geo,
+         year    = TIME_PERIOD,
+         gdppc   = OBS_VALUE)
+
+
+## Combining the datasets
+*df &lt;- life_sat
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country = geo,
+         year    = TIME_PERIOD,
+         gdppc   = OBS_VALUE)
+
+
+## Combining the datasets
+df &lt;- life_sat %&gt;%
+* full_join(gdppc, by = c('country', 'year'))
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-chunk_11-auto[
+
+```r
+## Loading libraries
+library(tidyverse)
+library(readr)
+
+
+## Loading and cleaning the data on life satisfaction
+life_sat &lt;- read_csv("lab_5/ilc_pw01__custom_7985898_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country  = geo,
+         year     = TIME_PERIOD,
+         life_sat = OBS_VALUE)
+
+
+## Loading and cleaning the data on GDP per capita
+gdppc &lt;- read_csv("lab_5/sdg_08_10__custom_7985512_linear.csv") %&gt;%
+  select(geo, TIME_PERIOD, OBS_VALUE) %&gt;%
+  rename(country = geo,
+         year    = TIME_PERIOD,
+         gdppc   = OBS_VALUE)
+
+
+## Combining the datasets
+df &lt;- life_sat %&gt;%
+  full_join(gdppc, by = c('country', 'year')) %&gt;%
+* filter(!is.na(life_sat),
+*        !is.na(gdppc),
+*        country!='EU27_2020')
+```
+]
+ 
+.panel2-chunk_11-auto[
+
+]
+
+&lt;style&gt;
+.panel1-chunk_11-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-chunk_11-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-chunk_11-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
