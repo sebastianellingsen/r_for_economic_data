@@ -18,6 +18,10 @@ class: center, middle, inverse, title-slide
 ---
 
 
+class: inverse, middle, center
+
+# Introduction
+
 &lt;style type="text/css"&gt;
 .remark-code{line-height: 1.5; font-size: 80%}
 
@@ -39,6 +43,14 @@ code.r.hljs.remark-code:hover{
   border-style: solid;
 }
 &lt;/style&gt;
+
+
+
+
+
+
+
+
 
 
 
@@ -83,6 +95,80 @@ To make the scripts understandable for other people and for yourself in the futu
 
 
 
+---
+# Libraries in R
+
+- To install a library in R use `install.packages("library name")`. This typically only needs to be done once during this course. To update the library, you can use the same command.
+
+- To load a library in R use `library(library name)`. This needs to be done every time you load commands from a library.
+
+- It is good practice to only load the packages you need for each session. The reason is that some packages have the same function names. In this case, you need to specify from which package the function is from. This is done with `library name::function name`.
+
+- `readr` has functionality for importing standard data formats in a convenient way. 
+
+- `readxl` has functions for importing data stored in Excel.
+
+- `tidyverse` has several functions that are convenient for working with data.
+
+
+
+
+
+
+
+
+
+---
+# General functions
+
+- `%&gt;%` is a function from the `tidyverse` package. It tells R that we are referring to an object we have defined on a line above.
+
+- `&lt;-` is an assignment operator in R. You can assign an object to a name. For example, if you want to create a variable `x` that takes the value `3`, you can write `x &lt;- 3`. From our labs, we have seen how we can assign a plot or a dataset to a variable name as well. 
+
+- Addition: `+`, subtraction: `-`, multiplication: `*`, division: `/`.
+
+- Vectors are constructed using `c()` (for concatenate). Ex: `v &lt;- c(1,2,3)`.
+
+- `ifelse(statement, if true, if false)` creates an indicator variable.
+
+
+
+
+
+---
+# Cleaning data
+
+- `read_csv()` opens csv files in R.
+
+- `read_excel()` opens excel files in R. 
+
+- `select()` selects columns in a dataset.
+
+- `filter()` selects rows in a dataset.
+
+- `rename()` renames columns in a dataset.
+
+- `mutate()` create a new column in a dataset.
+
+- `lag( ,n = 1)` lags a variable `n` rows.
+
+
+
+
+
+
+
+
+---
+# Plotting data 
+
+- `ggplot()` is a command for plotting data.
+
+- `geom_line()` connects a line between your data points.
+
+- `geom_point()` plots the data points.
+
+- `geom_bar()` plots a bar chart.
 
 
 
