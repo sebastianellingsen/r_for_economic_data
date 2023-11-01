@@ -232,7 +232,7 @@ library(tidyverse)
 library(readxl)
 
 # Loading and cleaning the data
-*read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1)
+*read_excel("mpd2020.xlsx", sheet = 4, skip = 1)
 ```
 ]
  
@@ -285,7 +285,7 @@ library(tidyverse)
 library(readxl)
 
 # Loading and cleaning the data
-read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+read_excel("mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
 * dplyr::select(year, GBR)
 ```
 ]
@@ -322,7 +322,7 @@ library(tidyverse)
 library(readxl)
 
 # Loading and cleaning the data
-read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+read_excel("mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
   dplyr::select(year, GBR) %&gt;%
 * filter(year &gt;= 1400)
 ```
@@ -360,7 +360,7 @@ library(tidyverse)
 library(readxl)
 
 # Loading and cleaning the data
-read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
+read_excel("mpd2020.xlsx", sheet = 4, skip = 1) %&gt;%
   dplyr::select(year, GBR) %&gt;%
   filter(year &gt;= 1400) %&gt;%
 * rename(gdppc = GBR)

@@ -189,7 +189,7 @@ library(tidyverse)
 library(readxl)
 
 ## Loading data 
-mpd2020 <- read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+mpd2020 <- read_excel("mpd2020.xlsx", sheet = 4, skip = 1) %>% 
   dplyr::select(year, GBR) %>% 
   filter(year >= 1400) %>% 
   rename(gdppc = GBR)
@@ -204,7 +204,7 @@ library(tidyverse)
 library(readxl)
 
 # Loading and cleaning the data  
-read_excel("lab_1/mpd2020.xlsx", sheet = 4, skip = 1) %>% 
+read_excel("mpd2020.xlsx", sheet = 4, skip = 1) %>% 
   dplyr::select(year, GBR) %>% 
   filter(year >= 1400) %>% 
   rename(gdppc = GBR)
