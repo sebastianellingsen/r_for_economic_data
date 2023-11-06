@@ -1,15 +1,19 @@
 ---
 title: "R for Economic Data Labs"
-author: "Sebastian Ellingsen"
-date: "1/11/2023"
+subtitle: "Sebastian Ellingsen"
+author: "School of Economics - University of Bristol"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    css: xaringan-themer.css
     lib_dir: libs
     nature:
-      ratio: 16:9
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: '16:9'
+      navigation:
+        scroll: true # false if wish to disable scrolling by mouth and use keyboard only
 ---
 
 class: inverse, middle, center
@@ -41,6 +45,10 @@ code.r.hljs.remark-code:hover{
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253")
 
 # This is the recommended set up for flipbooks
 # you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
@@ -248,15 +256,47 @@ df$var_1
 
 
 ---
-# Plotting data 
+## Data visualization
 
-- `ggplot()` is a command for plotting data.
+Data visualization: the creation/study of the visual representation of quantitative information.
 
-- `geom_line()` connects a line between your data points.
+There are many tools for visualizing data. We will use R. 
 
-- `geom_point()` plots the data points.
+There are many approaches within R for making plots (**ggplot2** is one of them).
 
-- `geom_bar()` plots a bar chart.
+- ggplot2 is the name of the package
+
+- The `gg` in "ggplot2" stands for Grammar of Graphics
+
+- For help with the ggplot2, see http://ggplot2.tidyverse.org/
+
+---
+
+## ggplot2, part of the tidyverse
+
+- `ggplot2` is a data visualization package, that is part of the tidyverse library.
+
+- To use ggplot2 functions, first load tidyverse
+```{r}
+library(tidyverse)
+```
+
+- In `ggplot2` the structure of the code for plots can often be summarized as
+```{r eval = FALSE}
+ggplot + 
+  geom_xxx
+```
+
+or, more precisely
+
+```{r eval = FALSE}
+ggplot(data = [dataset], mapping = aes(x = [x-variable], y = [y-variable])) +
+   geom_xxx() +
+   other options
+```
+
+
+
 
 
 

@@ -3,17 +3,18 @@
   <head>
     <title>R for Economic Data Labs</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Sebastian Ellingsen" />
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="School of Economics - University of Bristol" />
+    <meta name="date" content="2023-11-06" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # R for Economic Data Labs
-### Sebastian Ellingsen
-### 1/11/2023
+## Sebastian Ellingsen
+### School of Economics - University of Bristol
+### 2023-11-06
 
 ---
 
@@ -301,15 +302,50 @@ df$var_1
 
 
 ---
-# Plotting data 
+## Data visualization
 
-- `ggplot()` is a command for plotting data.
+Data visualization: the creation/study of the visual representation of quantitative information.
 
-- `geom_line()` connects a line between your data points.
+There are many tools for visualizing data. We will use R. 
 
-- `geom_point()` plots the data points.
+There are many approaches within R for making plots (**ggplot2** is one of them).
 
-- `geom_bar()` plots a bar chart.
+- ggplot2 is the name of the package
+
+- The `gg` in "ggplot2" stands for Grammar of Graphics
+
+- For help with the ggplot2, see http://ggplot2.tidyverse.org/
+
+---
+
+## ggplot2, part of the tidyverse
+
+- `ggplot2` is a data visualization package, that is part of the tidyverse library.
+
+- To use ggplot2 functions, first load tidyverse
+
+```r
+library(tidyverse)
+```
+
+- In `ggplot2` the structure of the code for plots can often be summarized as
+
+```r
+ggplot + 
+  geom_xxx
+```
+
+or, more precisely
+
+
+```r
+ggplot(data = [dataset], mapping = aes(x = [x-variable], y = [y-variable])) +
+   geom_xxx() +
+   other options
+```
+
+
+
 
 
 
@@ -8198,10 +8234,13 @@ ggplot(data = df, aes(x = as.numeric(year), y = odi, color = country))+
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": true
+}
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
